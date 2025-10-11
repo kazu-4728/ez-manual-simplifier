@@ -1,4 +1,4 @@
-﻿# Markdownlint Error Report (2025-10-11)
+# Markdownlint Error Report (2025-10-11)
 
 ## 概要
 
