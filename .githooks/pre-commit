@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+# Auto-fix Markdown spacing and code fences
+if command -v pwsh >/dev/null 2>&1; then
+  pwsh -NoProfile -ExecutionPolicy Bypass -File "$ROOT/tools/fix_md_blanklines.ps1" -Root "$ROOT"
+elif command -v powershell >/dev/null 2>&1; then
+  powershell -NoProfile -ExecutionPolicy Bypass -File "$ROOT/tools/fix_md_blanklines.ps1" -Root "$ROOT"
+elif command -v python >/dev/null 2>&1; then
+  python "$ROOT/tools/fix_md_blanklines.py"
+fi
+
+# Stage any Markdown changes
+git add -A "*.md"
+
+# Optionally run markdownlint if available locally (non-fatal)
+if command -v npx >/dev/null 2>&1; then
+  npx --yes markdownlint-cli2 "**/*.md" "#node_modules" || true
+fi
+
+exit 0
+

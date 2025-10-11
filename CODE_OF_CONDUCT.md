@@ -1,4 +1,4 @@
-# Code of Conduct / 行動規範
+﻿# Code of Conduct / 行動規範
 
 [English](#english) | [日本語](#japanese)
 
@@ -17,17 +17,25 @@ We pledge to act and interact in ways that contribute to an open, welcoming, div
 Examples of behavior that contributes to a positive environment for our community include:
 
 * Demonstrating empathy and kindness toward other people
+
 * Being respectful of differing opinions, viewpoints, and experiences
+
 * Giving and gracefully accepting constructive feedback
+
 * Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
+
 * Focusing on what is best not just for us as individuals, but for the overall community
 
 Examples of unacceptable behavior include:
 
 * The use of sexualized language or imagery, and sexual attention or advances of any kind
+
 * Trolling, insulting or derogatory comments, and personal or political attacks
+
 * Public or private harassment
+
 * Publishing others' private information, such as a physical or email address, without their explicit permission
+
 * Other conduct which could reasonably be considered inappropriate in a professional setting
 
 ### Enforcement Responsibilities
@@ -65,17 +73,25 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 コミュニティにとってポジティブな環境に貢献する行動の例には、以下が含まれます：
 
 * 他の人々に対する共感と親切さを示すこと
+
 * 異なる意見、視点、経験を尊重すること
+
 * 建設的なフィードバックを与え、優雅に受け入れること
+
 * 私たちの過ちによって影響を受けた人々に責任を受け入れ、謝罪し、その経験から学ぶこと
+
 * 個人としての私たちだけでなく、コミュニティ全体にとって何が最善かに焦点を当てること
 
 受け入れられない行動の例には、以下が含まれます：
 
 * 性的な言葉や画像の使用、およびあらゆる種類の性的な注意や進歩
+
 * トローリング、侮辱的またはけなすコメント、個人的または政治的攻撃
+
 * 公的または私的なハラスメント
+
 * 明示的な許可なしに、物理的またはメールアドレスなどの他人の個人情報を公開すること
+
 * 専門的な環境で不適切と合理的に考えられるその他の行為
 
 ### 執行責任
@@ -97,3 +113,4 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 ### 帰属
 
 この行動規範は、[Contributor Covenant](https://www.contributor-covenant.org) バージョン 2.0 から改変されたもので、https://www.contributor-covenant.org/version/2/0/code_of_conduct.html で入手できます。
+

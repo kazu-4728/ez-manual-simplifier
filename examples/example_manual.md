@@ -1,4 +1,4 @@
-# Example Manual Text
+﻿# Example Manual Text
 
 This is a sample manual text that can be simplified using EZ Manual Simplifier.
 
@@ -11,10 +11,15 @@ The aforementioned software application necessitates the utilization of a contem
 ### Installation Procedure
 
 1. Navigate to the designated download repository utilizing your preferred web browser application
+
 2. Locate and actuate the download mechanism for the appropriate executable binary file
+
 3. Upon completion of the download process, initiate the installation wizard by executing the downloaded file
+
 4. Follow the on-screen prompts presented by the installation interface
+
 5. Select the desired installation directory path
+
 6. Confirm the installation parameters and await the completion of the file transfer process
 
 ---
@@ -26,15 +31,24 @@ The aforementioned software application necessitates the utilization of a contem
 ### System Requirements
 
 You need a modern computer with:
+
 - At least 4GB of RAM
+
 - A processor with 2.0 GHz or faster
+
 - Operating system version 10 or newer
 
 ### How to Install
 
 1. Go to the download page in your web browser
+
 2. Find and click the download button for your system
+
 3. Open the downloaded file when it finishes
+
 4. Follow the instructions on screen
+
 5. Choose where to install the program
+
 6. Click install and wait for it to finish
+
