@@ -292,11 +292,21 @@ function Fix-BareUrls($text) {
         # Avoid lines containing inline code backticks
         if ($line -match '`.*https?://.*`') { $out.Add($line); continue }
 
-        # Replace bare URLs with autolinks <url>
-        $fixed = [regex]::Replace($line, '(^|\s)(https?://[^\s<>()]+)', {
+        # Replace bare URLs with autolinks <url>, allowing balanced parentheses
+        $fixed = [regex]::Replace($line, '(^|\s)(https?://[^\s<>\[\]]+)', {
             param($m)
             $prefix = $m.Groups[1].Value
             $url = $m.Groups[2].Value
+            # Remove trailing unmatched parentheses
+            while ($url -match '\)$') {
+                $openCount = ($url -split '\(').Count - 1
+                $closeCount = ($url -split '\)').Count - 1
+                if ($closeCount -gt $openCount) {
+                    $url = $url.Substring(0, $url.Length - 1)
+                } else {
+                    break
+                }
+            }
             if ($url.StartsWith('<') -and $url.EndsWith('>')) { return $m.Value }
             return $prefix + '<' + $url + '>'
         })
@@ -337,8 +347,8 @@ function Fix-DuplicateHeadings($text) {
             $textPart = ($textPart -replace '\s#+\s*$', '').Trim()
             $key = "{0}|{1}" -f $hashes.Length, $textPart
             if ($seen.ContainsKey($key)) {
-                $seen[$key] = [int]$seen[$key] + 1
-                $dupIndex = [int]$seen[$key]
+                $seen[$key] = $seen[$key] + 1
+                $dupIndex = $seen[$key]
                 if ($dupIndex -eq 2) {
                     $newText = ($textPart + ' (details)')
                 } else {
