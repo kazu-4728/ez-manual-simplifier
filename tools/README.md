@@ -24,6 +24,8 @@
 
 - 重複見出しの自動リネーム
 
+- 隠しディレクトリ（`.github/`等）のファイルも処理
+
 **使用方法**:
 
 ```powershell
@@ -34,7 +36,15 @@ Ctrl+Shift+P → "Tasks: Run Task" → "Fix Markdown spacing"
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/fix_md_blanklines.ps1 -Root .
 ```
 
-**対象ファイル**: `**/*.md` (リポジトリ内のすべてのMarkdownファイル)
+**対象ファイル**: `**/*.md` (リポジトリ内のすべてのMarkdownファイル、隠しディレクトリ含む)
+
+**更新履歴**:
+
+- 2025-10-11: スクリプトの不具合修正
+  - `-Force` フラグ追加で隠しディレクトリに対応
+  - 行分割処理の修正（`, -1` パラメータ削除）
+  - LF改行への対応（CRLF → LF）
+  - `-NoNewline` フラグ追加で余分な改行を防止
 
 ### `install_hooks.ps1`
 
