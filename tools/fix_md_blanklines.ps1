@@ -169,13 +169,33 @@ function Fix-HeadingSpacing($text) {
             continue
         }
 
+        # Detect optional blockquote lead and heading
+        $leadMatch = [regex]::Match($line, '^[\s]*(>+\s*)')
+        $lead = if ($leadMatch.Success) { $leadMatch.Groups[1].Value } else { '' }
+        $isHeading = $line -match '^[\s]*(?:>+\s*)?#{1,6}\s+\S'
+
+        if ($isHeading) {
+            # Ensure blank line before heading
+            if ($out.Count -gt 0) {
+                $prev = $out[$out.Count - 1]
+                $prevIsBlank = ($prev.Trim() -eq '')
+                $prevIsQuotedBlank = ($lead -ne '' -and ($prev.Trim() -eq $lead.Trim()))
+                if (-not ($prevIsBlank -or $prevIsQuotedBlank)) {
+                    if ($lead -ne '') { $out.Add($lead.Trim()) } else { $out.Add('') }
+                }
+            }
+        }
+
         $out.Add($line)
-        if ($line -match '^[\s]{0,3}#{1,6}\s+\S') {
+        if ($isHeading) {
             # Ensure a blank line after heading
             if ($i + 1 -lt $lines.Count) {
                 $nxt = $lines[$i + 1]
                 $nxtIsBlank = ($nxt.Trim() -eq '')
-                if (-not $nxtIsBlank) { $out.Add('') }
+                $nxtIsQuotedBlank = ($lead -ne '' -and ($nxt.Trim() -eq $lead.Trim()))
+                if (-not ($nxtIsBlank -or $nxtIsQuotedBlank)) {
+                    if ($lead -ne '') { $out.Add($lead.Trim()) } else { $out.Add('') }
+                }
             }
         }
     }
@@ -220,6 +240,32 @@ function Collapse-MultipleBlanks($text) {
     return [string]::Join("`r`n", $out)
 }
 
+function Trim-TrailingSpaces($text) {
+    $lines = $text -split "\r?\n", -1
+    $out = New-Object System.Collections.Generic.List[string]
+    $inFence = $false
+    $fence = $null
+
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $line = $lines[$i]
+        $strip = $line.TrimStart()
+        if (-not $inFence -and ($strip.StartsWith('```') -or $strip.StartsWith('~~~'))) {
+            $inFence = $true; $fence = $strip.Substring(0,3)
+            $out.Add($line)
+            continue
+        }
+        if ($inFence) {
+            $out.Add($line)
+            if ($strip.StartsWith($fence)) { $inFence = $false; $fence = $null }
+            continue
+        }
+        # Remove trailing whitespace
+        $out.Add(($line -replace '\s+$',''))
+    }
+
+    return [string]::Join("`r`n", $out)
+}
+
 $rootPath = (Resolve-Path $Root).Path
 $changed = 0
 
@@ -231,9 +277,12 @@ Get-ChildItem -Path $rootPath -Recurse -Filter *.md -File | ForEach-Object {
     $fixed2 = Fix-BlanksAroundFences $fixed1
     $fixed3 = Fix-HeadingSpacing $fixed2
     $fixed4 = Collapse-MultipleBlanks $fixed3
-    if ($fixed4 -ne $original) {
+    $fixed5 = Trim-TrailingSpaces $fixed4
+    # Ensure single trailing newline
+    if (-not $fixed5.EndsWith("`r`n")) { $fixed5 = $fixed5 + "`r`n" }
+    if ($fixed5 -ne $original) {
         # Preserve UTF-8 encoding
-        Set-Content -Path $path -Value $fixed4 -Encoding UTF8
+        Set-Content -Path $path -Value $fixed5 -Encoding UTF8
         Write-Output ("fixed: {0}" -f $path)
         $changed++
     }

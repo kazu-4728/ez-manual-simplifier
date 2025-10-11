@@ -21,11 +21,17 @@
 #### ✨ 完了タスク
 
 - Markdownlint エラー（MD032/MD031/MD040/MD022/MD012）の一括修正
+
 - 自動修正スクリプト追加と実行（tools/fix_md_blanklines.ps1, tools/fix_md_blanklines.py）
+
 - 設定追加（.markdownlint.json, .vscode/settings.json）
+
 - VS Code スニペット/タスク追加（.vscode/snippets/markdown.json, .vscode/tasks.json）
+
 - Git pre-commit フックとインストールスクリプト追加（.githooks/pre-commit, tools/install_hooks.ps1）
+
 - CI による markdownlint チェックを追加（.github/workflows/markdownlint.yml）
+
 - 既存 Markdown 17 ファイルを整形・修正
 
 #### 🔄 進行中タスク
@@ -35,6 +41,7 @@
 #### 📝 次回作業予定
 
 - ルール調整の合意と反映
+
 - 追加の lint 違反があれば個別対処
 
 ### 2025年10月11日

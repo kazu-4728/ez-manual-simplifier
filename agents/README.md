@@ -16,7 +16,7 @@ This directory contains agent configurations and instructions for AI-powered aut
 
 - **Purpose**: Generates and maintains project documentation
 
-- **Capabilities**: 
+- **Capabilities**:
 
   - Creates README files
 
@@ -112,7 +112,7 @@ Agent configurations are stored in YAML files in this directory. Each agent has 
 
 - **目的**: プロジェクトドキュメントの生成と保守
 
-- **機能**: 
+- **機能**:
 
   - README ファイルの作成
 
