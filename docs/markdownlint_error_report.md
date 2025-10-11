@@ -1,4 +1,4 @@
-# Markdownlint エラー報告（2025年10月11日）
+# Markdownlint Error Report (2025-10-11)
 
 ## 概要
 - 発生日時: 2025年10月11日
