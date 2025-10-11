@@ -261,3 +261,21 @@
 **最終更新**: 2025年10月11日
 **更新者**: kazu-4728
 
+### 2025年10月11日（VS Code 作業ログ）
+
+#### 完了タスク
+
+- VS Code へ切り替え。ローカルリポジトリに設定・スニペット・タスクを追加済み
+
+- Git hooks 有効化準備（tools/install_hooks.ps1）
+
+- PR ブランチでの修正継続
+
+#### 次回作業予定
+
+1. PowerShell: tools/install_hooks.ps1 を実行して hooks 有効化
+
+2. VS Code タスク「Fix Markdown spacing」を実行（必要時）
+
+3. PR の Checks を確認し、問題なければマージ
+
