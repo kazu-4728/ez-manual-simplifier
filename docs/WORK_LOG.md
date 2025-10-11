@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier 作業記録
+# EZ Manual Simplifier 作業記録
 
 ## プロジェクト進捗ダッシュボード
 
@@ -24,9 +24,7 @@
 
 - 自動修正スクリプト追加と実行（tools/fix_md_blanklines.ps1, tools/fix_md_blanklines.py）
 
-- 設定追加（.markdownlint.json, .vscode/settings.json）
-
-- VS Code スニペット/タスク追加（.vscode/snippets/markdown.json, .vscode/tasks.json）
+- lint 設定を追加（.markdownlint.json）
 
 - Git pre-commit フックとインストールスクリプト追加（.githooks/pre-commit, tools/install_hooks.ps1）
 
