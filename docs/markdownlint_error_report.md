@@ -33,7 +33,7 @@
   - `.github/workflows/markdownlint.yml`
 
 ## 今後の対応予定
-- コードフェンスへの言語指定の精緻化（例: `bash`, `markdown` など）
+- コードフェンスへの言語指定の精緻化（例：`bash`, `markdown` など）
 - Markdownlint ルール調整案の検討と合意形成
 - 追加の lint 違反が検出された場合の個別対処
 
