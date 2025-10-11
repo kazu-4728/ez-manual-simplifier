@@ -83,3 +83,4 @@ cd c:\Users\MF-P0624\git_cusor\ez-manual-simplifier
 - **依存関係**: なし（Windows標準のPowerShellで動作）
 
 - **テスト**: CI/CDパイプラインで自動テスト実行
+
