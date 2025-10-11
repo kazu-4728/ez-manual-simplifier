@@ -83,9 +83,7 @@ source venv/bin/activate  # Windows の場合: venv\Scripts\activate
 ## ドキュメント
 
 - 機能を変更した場合は README.md を更新する
-
 - 新しい関数とクラスに docstring を追加する
-
 - `docs/` ディレクトリ内の関連ドキュメントを更新する
 
 ## 質問がありますか？

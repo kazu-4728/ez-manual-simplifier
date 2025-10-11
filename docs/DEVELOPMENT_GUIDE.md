@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier 開発ガイド
+# EZ Manual Simplifier 開発ガイド
 
 ## 🚀 クイックスタート
 
@@ -112,20 +112,20 @@ ez-manual-simplifier/
 def simplify_text(text: str, level: str = "medium") -> str:
     """
     テキストを簡易化する関数
-    
+
     Args:
         text: 簡易化するテキスト
         level: 簡易化レベル ("low", "medium", "high")
-    
+
     Returns:
         簡易化されたテキスト
-    
+
     Raises:
         ValueError: 無効なレベルが指定された場合
     """
     if level not in ["low", "medium", "high"]:
         raise ValueError(f"Invalid simplification level: {level}")
-    
+
     # 実装コード
     return processed_text
 ```
@@ -156,11 +156,11 @@ async function simplifyText(text, level = 'medium') {
             },
             body: JSON.stringify({ text, level })
         });
-        
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const result = await response.json();
         return result.simplified_text;
     } catch (error) {
@@ -186,27 +186,27 @@ from src.simplifier import simplify_text
 
 class TestSimplifier:
     """テキスト簡易化機能のテストクラス"""
-    
+
     def test_simplify_text_basic(self):
         """基本的なテキスト簡易化テスト"""
         text = "This is a complex technical manual."
         result = simplify_text(text)
         assert isinstance(result, str)
         assert len(result) > 0
-    
+
     def test_simplify_text_levels(self):
         """簡易化レベルのテスト"""
         text = "This is a test text."
-        
+
         for level in ["low", "medium", "high"]:
             result = simplify_text(text, level=level)
             assert isinstance(result, str)
             assert len(result) > 0
-    
+
     def test_simplify_text_invalid_level(self):
         """無効なレベルのテスト"""
         text = "This is a test text."
-        
+
         with pytest.raises(ValueError, match="Invalid simplification level"):
             simplify_text(text, level="invalid")
 ```
@@ -312,27 +312,20 @@ FAILED tests/test_simplifier.py::TestSimplifier::test_simplify_text_basic
 ### コードレビュー
 
 - **機能性**: 要件を満たしているか
-
 - **品質**: コードの可読性と保守性
-
 - **パフォーマンス**: 実行効率の確認
-
 - **セキュリティ**: 脆弱性の確認
 
 ### リファクタリング
 
 - **定期的な見直し**: 月次でのコード品質確認
-
 - **技術的負債の解消**: 古いコードの更新
-
 - **パフォーマンス改善**: ボトルネックの特定と改善
 
 ### 学習と成長
 
 - **技術トレンド**: 新しい技術の調査
-
 - **ベストプラクティス**: 業界標準の学習
-
 - **ツール改善**: 開発効率向上のためのツール導入
 
 ---
