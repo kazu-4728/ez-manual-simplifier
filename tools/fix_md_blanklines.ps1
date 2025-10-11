@@ -266,6 +266,66 @@ function Trim-TrailingSpaces($text) {
     return [string]::Join("`r`n", $out)
 }
 
+function Fix-BareUrls($text) {
+    $lines = $text -split "\r?\n", -1
+    $out = New-Object System.Collections.Generic.List[string]
+    $inFence = $false
+    $fence = $null
+
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $line = $lines[$i]
+        $strip = $line.TrimStart()
+        if (-not $inFence -and ($strip.StartsWith('```') -or $strip.StartsWith('~~~'))) {
+            $inFence = $true; $fence = $strip.Substring(0,3)
+            $out.Add($line)
+            continue
+        }
+        if ($inFence) {
+            $out.Add($line)
+            if ($strip.StartsWith($fence)) { $inFence = $false; $fence = $null }
+            continue
+        }
+
+        # Skip lines that look like Markdown links already
+        if ($line -match '\]\(https?://') { $out.Add($line); continue }
+
+        # Avoid lines containing inline code backticks
+        if ($line -match '`.*https?://.*`') { $out.Add($line); continue }
+
+        # Replace bare URLs with autolinks <url>
+        $fixed = [regex]::Replace($line, '(^|\s)(https?://[^\s<>()]+)', {
+            param($m)
+            $prefix = $m.Groups[1].Value
+            $url = $m.Groups[2].Value
+            if ($url.StartsWith('<') -and $url.EndsWith('>')) { return $m.Value }
+            return $prefix + '<' + $url + '>'
+        })
+
+        $out.Add($fixed)
+    }
+
+    return [string]::Join("`r`n", $out)
+}
+
+function Ensure-FirstLineHeadingIfNeeded($path, $text) {
+    # Restrict to known templates to avoid altering content unexpectedly
+    $name = [System.IO.Path]::GetFileName($path).ToLowerInvariant()
+    if ($name -ne 'pull_request_template.md') { return $text }
+
+    $lines = $text -split "\r?\n", -1
+    $i = 0
+    while ($i -lt $lines.Count -and $lines[$i].Trim() -eq '') { $i++ }
+    if ($i -ge $lines.Count) { return "# Pull Request`r`n`r`n" }
+    if (-not $lines[$i].TrimStart().StartsWith('#')) {
+        $new = New-Object System.Collections.Generic.List[string]
+        $new.Add('# Pull Request')
+        $new.Add('')
+        for (; $i -lt $lines.Count; $i++) { $new.Add($lines[$i]) }
+        return [string]::Join("`r`n", $new)
+    }
+    return $text
+}
+
 $rootPath = (Resolve-Path $Root).Path
 $changed = 0
 
@@ -278,11 +338,13 @@ Get-ChildItem -Path $rootPath -Recurse -Filter *.md -File | ForEach-Object {
     $fixed3 = Fix-HeadingSpacing $fixed2
     $fixed4 = Collapse-MultipleBlanks $fixed3
     $fixed5 = Trim-TrailingSpaces $fixed4
+    $fixed6 = Fix-BareUrls $fixed5
+    $fixed7 = Ensure-FirstLineHeadingIfNeeded $path $fixed6
     # Ensure single trailing newline
-    if (-not $fixed5.EndsWith("`r`n")) { $fixed5 = $fixed5 + "`r`n" }
-    if ($fixed5 -ne $original) {
+    if (-not $fixed7.EndsWith("`r`n")) { $fixed7 = $fixed7 + "`r`n" }
+    if ($fixed7 -ne $original) {
         # Preserve UTF-8 encoding
-        Set-Content -Path $path -Value $fixed5 -Encoding UTF8
+        Set-Content -Path $path -Value $fixed7 -Encoding UTF8
         Write-Output ("fixed: {0}" -f $path)
         $changed++
     }
