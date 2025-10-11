@@ -16,7 +16,7 @@
 
 ## 📅 作業ログ
 
-### 2025年10月11日（Markdownlint 対策）
+\r\n\r\n- PR テンプレート追加（.github/pull_request_template.md）および PR 用ブランチ作成: chore/add-pr-template-and-ci-notes-2025-10-11
 
 #### ✨ 完了タスク
 
