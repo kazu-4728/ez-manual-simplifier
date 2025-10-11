@@ -59,43 +59,30 @@ This directory contains agent configurations and instructions for AI-powered aut
 Agents can be invoked through various mechanisms depending on your setup:
 
 - GitHub Actions workflows
-
 - Command-line interface
-
 - IDE integrations
-
 - API calls
 
 ### Configuration
 
 Agent configurations are stored in YAML files in this directory. Each agent has its own configuration file that defines:
-
 - Agent name and description
-
 - Capabilities and limitations
-
 - Trigger conditions
-
 - Output formats
 
 ### Best Practices
 
 1. **Clear Instructions**: Provide clear and specific instructions to agents
-
 2. **Review Agent Output**: Always review agent-generated content before merging
-
 3. **Iterative Improvement**: Refine agent prompts based on output quality
-
 4. **Version Control**: Track agent configuration changes in version control
 
 ### Future Enhancements
 
 - Specialized agents for different programming languages
-
 - Custom agents for project-specific tasks
-
 - Agent orchestration for complex workflows
-
 - Learning from feedback to improve agent performance
 
 ---

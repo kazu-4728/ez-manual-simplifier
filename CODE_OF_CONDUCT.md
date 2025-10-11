@@ -56,7 +56,7 @@ All project team members are obligated to respect the privacy and security of th
 
 ### Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.0, available at <https://www.contributor-covenant.org/version/2/0/code_of_conduct.html>.
 
 ---
 
@@ -71,27 +71,17 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 ### 私たちの基準
 
 コミュニティにとってポジティブな環境に貢献する行動の例には、以下が含まれます：
-
 * 他の人々に対する共感と親切さを示すこと
-
 * 異なる意見、視点、経験を尊重すること
-
 * 建設的なフィードバックを与え、優雅に受け入れること
-
 * 私たちの過ちによって影響を受けた人々に責任を受け入れ、謝罪し、その経験から学ぶこと
-
 * 個人としての私たちだけでなく、コミュニティ全体にとって何が最善かに焦点を当てること
 
 受け入れられない行動の例には、以下が含まれます：
-
 * 性的な言葉や画像の使用、およびあらゆる種類の性的な注意や進歩
-
 * トローリング、侮辱的またはけなすコメント、個人的または政治的攻撃
-
 * 公的または私的なハラスメント
-
 * 明示的な許可なしに、物理的またはメールアドレスなどの他人の個人情報を公開すること
-
 * 専門的な環境で不適切と合理的に考えられるその他の行為
 
 ### 執行責任
