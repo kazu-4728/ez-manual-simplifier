@@ -15,10 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run auto-fix (formatting guard)
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -File tools/fix_md_blanklines.ps1 -Root .
+          git diff --name-only --exit-code || (
+            echo 'Formatting issues detected. Run tools/fix_md_blanklines.ps1 locally and commit the changes.'
+            exit 1
+          )
       - name: Run markdownlint-cli2
         uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: |
             **/*.md
           config: .markdownlint.json
-
