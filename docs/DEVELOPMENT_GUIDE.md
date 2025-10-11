@@ -341,4 +341,3 @@ FAILED tests/test_simplifier.py::TestSimplifier::test_simplify_text_basic
 **バージョン**: 1.0
 **作成者**: kazu-4728
 **最終更新**: 2024年12月19日
-

@@ -1,4 +1,4 @@
-﻿# GitHub Copilot Instructions for EZ Manual Simplifier
+# GitHub Copilot Instructions for EZ Manual Simplifier
 
 ## Project Overview
 
@@ -94,4 +94,3 @@ def simplify_text(text: str, level: str = "medium") -> str:
 - `.github/workflows/markdownlint.yml`: CI pipeline with PowerShell formatting check
 
 When contributing, always check existing Japanese documentation first, maintain bilingual approach for user-facing content, and use the available markdown formatting task for consistency.
-

@@ -73,4 +73,3 @@
 - 詳細ログ: [`docs/WORK_LOG.md`](./WORK_LOG.md)
 
 - Markdownlint ルール一覧: <https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md>
-

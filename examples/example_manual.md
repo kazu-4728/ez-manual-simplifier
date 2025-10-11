@@ -51,4 +51,3 @@ You need a modern computer with:
 5. Choose where to install the program
 
 6. Click install and wait for it to finish
-

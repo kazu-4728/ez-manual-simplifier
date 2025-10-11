@@ -57,4 +57,3 @@ This directory contains detailed documentation for the EZ Manual Simplifier proj
 - **形式**: Markdown形式で統一
 
 - **バージョン管理**: Gitで変更履歴を管理
-
