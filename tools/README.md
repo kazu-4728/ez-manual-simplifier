@@ -1,4 +1,4 @@
-﻿# Tools Directory
+# Tools Directory
 
 このディレクトリには、EZ Manual Simplifier プロジェクトの開発・保守に使用するツールが含まれています。
 

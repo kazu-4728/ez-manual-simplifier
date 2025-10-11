@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier への貢献
+# EZ Manual Simplifier への貢献
 
 EZ Manual Simplifier への貢献にご関心をお寄せいただきありがとうございます！このドキュメントは、プロジェクトへの貢献に関するガイドラインを提供します。
 
@@ -50,7 +50,7 @@ EZ Manual Simplifier への貢献にご関心をお寄せいただきありが�
 
 ```bash
 # フォークをクローンする
-git clone https://github.com/YOUR_USERNAME/ez-manual-simplifier.git
+git clone <https://github.com/YOUR_USERNAME/ez-manual-simplifier.git>
 cd ez-manual-simplifier
 
 # 仮想環境を作成する（推奨）
@@ -93,3 +93,4 @@ source venv/bin/activate  # Windows の場合: venv\Scripts\activate
 質問や懸念事項がある場合は、お気軽に issue を作成してください。
 
 貢献していただきありがとうございます！
+

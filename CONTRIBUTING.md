@@ -1,4 +1,4 @@
-﻿# Contributing to EZ Manual Simplifier / EZ Manual Simplifier への貢献
+# Contributing to EZ Manual Simplifier / EZ Manual Simplifier への貢献
 
 [English](#english) | [日本語](#japanese)
 
@@ -56,7 +56,7 @@ We welcome suggestions! Please create an issue with:
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/ez-manual-simplifier.git
+git clone <https://github.com/YOUR_USERNAME/ez-manual-simplifier.git>
 cd ez-manual-simplifier
 
 # Create a virtual environment (recommended)
@@ -154,7 +154,7 @@ EZ Manual Simplifier への貢献にご関心をお寄せいただきありが�
 
 ```bash
 # フォークをクローンする
-git clone https://github.com/YOUR_USERNAME/ez-manual-simplifier.git
+git clone <https://github.com/YOUR_USERNAME/ez-manual-simplifier.git>
 cd ez-manual-simplifier
 
 # 仮想環境を作成する（推奨）
@@ -197,3 +197,4 @@ source venv/bin/activate  # Windows の場合: venv\Scripts\activate
 質問や懸念事項がある場合は、お気軽に issue を作成してください。
 
 貢献していただきありがとうございます！
+

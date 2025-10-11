@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier / EZ マニュアル簡素化ツール
+# EZ Manual Simplifier / EZ マニュアル簡素化ツール
 
 [English](#english) | [日本語](#japanese)
 
@@ -157,3 +157,4 @@ ez-manual-simplifier/
 ### サポート
 
 問題が発生した場合や質問がある場合は、GitHub で [issue を作成](https://github.com/kazu-4728/ez-manual-simplifier/issues) してください。
+

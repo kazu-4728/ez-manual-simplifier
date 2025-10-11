@@ -1,4 +1,4 @@
-﻿# Architecture / アーキテクチャ
+# Architecture / アーキテクチャ
 
 [English](#english) | [日本語](#japanese)
 
@@ -155,3 +155,4 @@ EZ Manual Simplifier は、関心事を分離し、拡張と保守を容易に�
 - 頻繁に処理されるドキュメントのキャッシュレイヤー
 
 - カスタム簡素化ルールのプラグインシステム
+

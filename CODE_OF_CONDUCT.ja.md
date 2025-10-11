@@ -1,4 +1,4 @@
-﻿# 行動規範
+# 行動規範
 
 ## 私たちの誓約
 
@@ -51,3 +51,4 @@
 ## 帰属
 
 この行動規範は、Contributor Covenant <https://www.contributor-covenant.org> バージョン 2.0 から改変されたもので、<https://www.contributor-covenant.org/version/2/0/code_of_conduct.html> で入手できます。
+

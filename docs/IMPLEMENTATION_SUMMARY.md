@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier - 実装サマリー (2025年10月11日)
+# EZ Manual Simplifier - 実装サマリー (2025年10月11日)
 
 ## 実装完了項目 ✅
 
