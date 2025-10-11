@@ -307,6 +307,56 @@ function Fix-BareUrls($text) {
     return [string]::Join("`r`n", $out)
 }
 
+function Fix-DuplicateHeadings($text) {
+    $lines = $text -split "\r?\n", -1
+    $out = New-Object System.Collections.Generic.List[string]
+    $inFence = $false
+    $fence = $null
+    $seen = @{}
+
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $line = $lines[$i]
+        $strip = $line.TrimStart()
+        if (-not $inFence -and ($strip.StartsWith('```') -or $strip.StartsWith('~~~'))) {
+            $inFence = $true; $fence = $strip.Substring(0,3)
+            $out.Add($line)
+            continue
+        }
+        if ($inFence) {
+            $out.Add($line)
+            if ($strip.StartsWith($fence)) { $inFence = $false; $fence = $null }
+            continue
+        }
+
+        $m = [regex]::Match($line, '^[\s]*(>+\s*)?(#{1,6})\s+(.+?)\s*$')
+        if ($m.Success) {
+            $lead = $m.Groups[1].Value
+            $hashes = $m.Groups[2].Value
+            $textPart = $m.Groups[3].Value
+            # Remove trailing ATX closing hashes if present
+            $textPart = ($textPart -replace '\s#+\s*$', '').Trim()
+            $key = "{0}|{1}" -f $hashes.Length, $textPart
+            if ($seen.ContainsKey($key)) {
+                $seen[$key] = [int]$seen[$key] + 1
+                $dupIndex = [int]$seen[$key]
+                if ($dupIndex -eq 2) {
+                    $newText = ($textPart + ' (details)')
+                } else {
+                    $newText = ($textPart + ' (details ' + $dupIndex + ')')
+                }
+                $out.Add("$lead$hashes $newText")
+                continue
+            } else {
+                $seen[$key] = 1
+            }
+        }
+
+        $out.Add($line)
+    }
+
+    return [string]::Join("`r`n", $out)
+}
+
 function Ensure-FirstLineHeadingIfNeeded($path, $text) {
     # Restrict to known templates to avoid altering content unexpectedly
     $name = [System.IO.Path]::GetFileName($path).ToLowerInvariant()
@@ -339,12 +389,13 @@ Get-ChildItem -Path $rootPath -Recurse -Filter *.md -File | ForEach-Object {
     $fixed4 = Collapse-MultipleBlanks $fixed3
     $fixed5 = Trim-TrailingSpaces $fixed4
     $fixed6 = Fix-BareUrls $fixed5
-    $fixed7 = Ensure-FirstLineHeadingIfNeeded $path $fixed6
+    $fixed7 = Fix-DuplicateHeadings $fixed6
+    $fixed8 = Ensure-FirstLineHeadingIfNeeded $path $fixed7
     # Ensure single trailing newline
-    if (-not $fixed7.EndsWith("`r`n")) { $fixed7 = $fixed7 + "`r`n" }
-    if ($fixed7 -ne $original) {
+    if (-not $fixed8.EndsWith("`r`n")) { $fixed8 = $fixed8 + "`r`n" }
+    if ($fixed8 -ne $original) {
         # Preserve UTF-8 encoding
-        Set-Content -Path $path -Value $fixed7 -Encoding UTF8
+        Set-Content -Path $path -Value $fixed8 -Encoding UTF8
         Write-Output ("fixed: {0}" -f $path)
         $changed++
     }
