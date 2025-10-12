@@ -1,4 +1,4 @@
-﻿# Documentation
+# Documentation
 
 This directory contains detailed documentation for the EZ Manual Simplifier project.
 

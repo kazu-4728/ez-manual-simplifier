@@ -1,4 +1,4 @@
-﻿# Example Manual Text
+# Example Manual Text
 
 This is a sample manual text that can be simplified using EZ Manual Simplifier.
 

@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier / EZ マニュアル簡素化ツール
+# EZ Manual Simplifier / EZ マニュアル簡素化ツール
 
 [English](#english) | [日本語](#japanese)
 

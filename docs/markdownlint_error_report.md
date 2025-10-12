@@ -30,6 +30,18 @@
 
   - `tools/fix_md_blanklines.py`
 
+- 自動修正スクリプトの不具合修正（2025-10-11）
+
+  - **問題**: スクリプトが `.github/` 内のファイルを処理せず、修正後も MD012 エラーが残存
+
+  - **原因1**: `Get-ChildItem` に `-Force` フラグが欠けていたため、隠しディレクトリを処理できなかった
+
+  - **原因2**: `$text -split "\r?\n", -1` の `, -1` パラメータにより、テキストが行分割されなかった
+
+  - **原因3**: `Set-Content` で `-NoNewline` フラグがなく、保存時に余分な改行が追加されていた
+
+  - **修正内容**: 上記3点を修正し、LF改行への対応も追加
+
 - lint 設定の明示化
 
   - `.markdownlint.json`
@@ -54,11 +66,11 @@
 
 ## 今後の対応予定
 
-- コードフェンスへの言語指定の精緻化（例：`bash`, `markdown` など）
+- ~~コードフェンスへの言語指定の精緻化（例：`bash`, `markdown` など）~~ 完了
 
-- Markdownlint ルール調整案の検討と合意形成
+- ~~追加の lint 違反が検出された場合の個別対処~~ 完了（全エラー解消）
 
-- 追加の lint 違反が検出された場合の個別対処
+- Markdownlint ルール調整案の検討と合意形成（必要に応じて）
 
 ## リスクと留意事項
 
@@ -73,4 +85,3 @@
 - 詳細ログ: [`docs/WORK_LOG.md`](./WORK_LOG.md)
 
 - Markdownlint ルール一覧: <https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md>
-

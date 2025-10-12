@@ -1,4 +1,4 @@
-﻿# Architecture / アーキテクチャ
+# Architecture / アーキテクチャ
 
 [English](#english) | [日本語](#japanese)
 

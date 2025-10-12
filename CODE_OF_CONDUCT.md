@@ -1,4 +1,4 @@
-﻿# Code of Conduct / 行動規範
+# Code of Conduct / 行動規範
 
 [English](#english) | [日本語](#japanese)
 

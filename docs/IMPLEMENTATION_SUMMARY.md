@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier - 実装サマリー (2025年10月11日)
+# EZ Manual Simplifier - 実装サマリー (2025年10月11日)
 
 ## 実装完了項目 ✅
 
@@ -75,7 +75,8 @@
 ### 4. 依存関係管理
 
 - **requirements.txt更新**:
-  ```
+
+  ```text
   markitdown[all]>=0.1.3  # ドキュメント変換
   # google-generativeai>=0.3.0  # 将来のGemini統合用
   ```
@@ -159,4 +160,3 @@ feat: Implement Phase 1 core functionality with markitdown integration
 Phase 1 progress: 80% complete
 Next: Gemini API integration for text simplification
 ```
-

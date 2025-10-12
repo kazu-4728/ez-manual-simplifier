@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier 作業記録
+# EZ Manual Simplifier 作業記録
 
 ## プロジェクト進捗ダッシュボード
 

@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier
+# EZ Manual Simplifier
 
 複雑なマニュアルやドキュメントを、わかりやすい形式に簡素化するツールです。
 

@@ -1,4 +1,4 @@
-﻿# Agents / エージェント
+# Agents / エージェント
 
 [English](#english) | [日本語](#japanese)
 

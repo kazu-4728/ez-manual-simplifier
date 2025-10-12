@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier 開発ガイド
+# EZ Manual Simplifier 開発ガイド
 
 ## 🚀 クイックスタート
 

@@ -76,8 +76,8 @@ function Fix-BlanksAroundLists($text) {
         }
     }
 
-    # Reconstruct with original-style newlines if possible (use Windows CRLF)
-    return [string]::Join("`r`n", $out)
+    # Use LF line endings for Unix/Linux compatibility
+    return [string]::Join("`n", $out)
 }
 
 function Fix-BlanksAroundFences($text) {
@@ -146,7 +146,7 @@ function Fix-BlanksAroundFences($text) {
         $out.Add($line)
     }
 
-    return [string]::Join("`r`n", $out)
+    return [string]::Join("`n", $out)
 }
 
 function Fix-HeadingSpacing($text) {
@@ -199,7 +199,7 @@ function Fix-HeadingSpacing($text) {
             }
         }
     }
-    return [string]::Join("`r`n", $out)
+    return [string]::Join("`n", $out)
 }
 
 function Collapse-MultipleBlanks($text) {
@@ -237,7 +237,7 @@ function Collapse-MultipleBlanks($text) {
         $prevBlank = $isBlank
     }
 
-    return [string]::Join("`r`n", $out)
+    return [string]::Join("`n", $out)
 }
 
 function Trim-TrailingSpaces($text) {
@@ -263,7 +263,7 @@ function Trim-TrailingSpaces($text) {
         $out.Add(($line -replace '\s+$',''))
     }
 
-    return [string]::Join("`r`n", $out)
+    return [string]::Join("`n", $out)
 }
 
 function Fix-BareUrls($text) {
@@ -304,7 +304,7 @@ function Fix-BareUrls($text) {
         $out.Add($fixed)
     }
 
-    return [string]::Join("`r`n", $out)
+    return [string]::Join("`n", $out)
 }
 
 function Fix-DuplicateHeadings($text) {
@@ -354,7 +354,7 @@ function Fix-DuplicateHeadings($text) {
         $out.Add($line)
     }
 
-    return [string]::Join("`r`n", $out)
+    return [string]::Join("`n", $out)
 }
 
 function Ensure-FirstLineHeadingIfNeeded($path, $text) {
@@ -365,13 +365,13 @@ function Ensure-FirstLineHeadingIfNeeded($path, $text) {
     $lines = $text -split "\r?\n", -1
     $i = 0
     while ($i -lt $lines.Count -and $lines[$i].Trim() -eq '') { $i++ }
-    if ($i -ge $lines.Count) { return "# Pull Request`r`n`r`n" }
+    if ($i -ge $lines.Count) { return "# Pull Request`n`n" }
     if (-not $lines[$i].TrimStart().StartsWith('#')) {
         $new = New-Object System.Collections.Generic.List[string]
         $new.Add('# Pull Request')
         $new.Add('')
         for (; $i -lt $lines.Count; $i++) { $new.Add($lines[$i]) }
-        return [string]::Join("`r`n", $new)
+        return [string]::Join("`n", $new)
     }
     return $text
 }
@@ -379,7 +379,7 @@ function Ensure-FirstLineHeadingIfNeeded($path, $text) {
 $rootPath = (Resolve-Path $Root).Path
 $changed = 0
 
-Get-ChildItem -Path $rootPath -Recurse -Filter *.md -File | ForEach-Object {
+Get-ChildItem -Path $rootPath -Recurse -Filter *.md -File -Force | ForEach-Object {
     $path = $_.FullName
 
     $original = Get-Content -Path $path -Raw -Encoding UTF8
@@ -391,11 +391,12 @@ Get-ChildItem -Path $rootPath -Recurse -Filter *.md -File | ForEach-Object {
     $fixed6 = Fix-BareUrls $fixed5
     $fixed7 = Fix-DuplicateHeadings $fixed6
     $fixed8 = Ensure-FirstLineHeadingIfNeeded $path $fixed7
-    # Ensure single trailing newline
-    if (-not $fixed8.EndsWith("`r`n")) { $fixed8 = $fixed8 + "`r`n" }
+    # Ensure text ends with exactly one newline
+    $fixed8 = $fixed8 -replace '[\r\n]+$', ''
+    $fixed8 = $fixed8 + "`n"
     if ($fixed8 -ne $original) {
-        # Preserve UTF-8 encoding
-        Set-Content -Path $path -Value $fixed8 -Encoding UTF8
+        # Preserve UTF-8 encoding and exact line endings
+        Set-Content -Path $path -Value $fixed8 -Encoding UTF8 -NoNewline
         Write-Output ("fixed: {0}" -f $path)
         $changed++
     }

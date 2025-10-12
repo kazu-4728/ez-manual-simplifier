@@ -1,4 +1,4 @@
-﻿# EZ Manual Simplifier プロジェクト要件定義書
+# EZ Manual Simplifier プロジェクト要件定義書
 
 ## プロジェクト概要
 
