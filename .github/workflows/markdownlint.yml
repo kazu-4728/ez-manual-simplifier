@@ -2,7 +2,7 @@ name: markdownlint
 on:
   pull_request:
   push:
-    paths: ["**/*.md",".markdownlint.json"]
+    paths: ["**/*.md", ".markdownlint.json"]
 jobs:
   lint:
     runs-on: ubuntu-latest
