@@ -6,7 +6,10 @@ This is a sample manual text that can be simplified using EZ Manual Simplifier.
 
 ### System Configuration Requirements
 
-The aforementioned software application necessitates the utilization of a contemporary computational device equipped with a minimum of 4 gigabytes of Random Access Memory (RAM) and a processor capable of executing instructions at a frequency of no less than 2.0 gigahertz. Furthermore, the operating system must be a recent iteration, specifically version 10 or subsequent releases thereof.
+The aforementioned software application necessitates the utilization of a contemporary computational device
+equipped with a minimum of 4 gigabytes of Random Access Memory (RAM) and a processor capable of executing
+instructions at a frequency of no less than 2.0 gigahertz. Furthermore, the operating system must be a recent
+iteration, specifically version 10 or subsequent releases thereof.
 
 ### Installation Procedure
 
@@ -24,7 +27,8 @@ The aforementioned software application necessitates the utilization of a contem
 
 ---
 
-**Note**: This is an example of complex text that could be simplified. The actual simplification functionality will be implemented in the core modules.
+**Note**: This is an example of complex text that could be simplified. The actual simplification functionality
+will be implemented in the core modules.
 
 ## Expected Simplified Output
 

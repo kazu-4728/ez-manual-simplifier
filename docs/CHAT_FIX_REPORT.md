@@ -197,7 +197,8 @@ python -m pytest tests/test_simplifier.py -v
 
 この修正により、GitHub Copilot Chat がリポジトリのコンテキストを理解し、より効果的に機能するために必要な構造化された設定ファイルが追加されました。変更は最小限に抑えられ、既存の機能を破壊することなく実装されています。
 
-This fix adds the structured configuration files needed for GitHub Copilot Chat to understand repository context and function more effectively. Changes were kept minimal and implemented without breaking existing functionality.
+This fix adds the structured configuration files needed for GitHub Copilot Chat to understand repository context
+and function more effectively. Changes were kept minimal and implemented without breaking existing functionality.
 
 ---
 

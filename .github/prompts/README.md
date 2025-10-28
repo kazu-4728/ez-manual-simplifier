@@ -4,7 +4,8 @@ This directory is reserved for reusable prompt templates for GitHub Copilot.
 
 ## Purpose
 
-Prompt files provide consistent, reusable instructions for common development tasks. They help ensure quality and consistency across the project.
+Prompt files provide consistent, reusable instructions for common development tasks. They help ensure quality
+and consistency across the project.
 
 ## Planned Prompts
 
@@ -22,6 +23,7 @@ Prompt files can be referenced by GitHub Copilot to provide context-specific ass
 ## Format
 
 Prompt files should:
+
 - Use markdown format
 - Be named descriptively (e.g., `task-name.prompt.md`)
 - Include clear, actionable instructions

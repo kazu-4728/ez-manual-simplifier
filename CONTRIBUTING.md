@@ -6,7 +6,8 @@
 
 ## English
 
-Thank you for your interest in contributing to EZ Manual Simplifier! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to EZ Manual Simplifier! This document provides guidelines for
+contributing to the project.
 
 ### Code of Conduct
 
