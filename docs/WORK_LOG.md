@@ -18,7 +18,7 @@
 
 \r\n\r\n- PR テンプレート追加（.github/pull_request_template.md）および PR 用ブランチ作成: chore/add-pr-template-and-ci-notes-2025-10-11
 
-#### ✨ 完了タスク
+### ✨ 完了タスク
 
 - Markdownlint エラー（MD032/MD031/MD040/MD022/MD012）の一括修正
 
