@@ -2,15 +2,19 @@
 
 ## Project Overview
 
-This is a Python-based manual simplification tool in early development (v0.1.0) designed to transform complex technical documentation into accessible formats using AI. The project follows a three-phase roadmap: Phase 1 (current) focuses on core simplification via Gemini API, Phase 2 adds agent coordination, and Phase 3 targets full automation.
+This is a Python-based manual simplification tool in early development (v0.1.0) designed to transform complex technical
+documentation into accessible formats using AI. The project follows a three-phase roadmap: Phase 1 (current) focuses on
+core simplification via Gemini API, Phase 2 adds agent coordination, and Phase 3 targets full automation.
 
 ## Architecture
 
-- **Core Module**: `src/simplifier.py` contains the main `simplify_text()` function with validation for levels ["low", "medium", "high"]
+- **Core Module**: `src/simplifier.py` contains the main `simplify_text()` function with validation for levels
+  ["low", "medium", "high"]
 
 - **Planned Structure**: Future expansion includes `api/`, `web/`, and `utils/` subdirectories under `src/`
 
-- **Test Strategy**: Tests use manual path insertion for imports: `sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))`
+- **Test Strategy**: Tests use manual path insertion for imports:
+  `sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))`
 
 - **Packaging**: Console script entry point defined as `ez-manual-simplifier=simplifier:main` in `setup.py`
 
@@ -93,4 +97,5 @@ def simplify_text(text: str, level: str = "medium") -> str:
 
 - `.github/workflows/markdownlint.yml`: CI pipeline with PowerShell formatting check
 
-When contributing, always check existing Japanese documentation first, maintain bilingual approach for user-facing content, and use the available markdown formatting task for consistency.
+When contributing, always check existing Japanese documentation first, maintain bilingual approach for user-facing
+content, and use the available markdown formatting task for consistency.
