@@ -13,7 +13,7 @@
 
 ## ワークフロー（最短手順）
 1. 執筆/修正を行う（Lintで止めない）
-2. 気になる箇所のみ `Ctrl+Shift+P → Markdown: Open Preview` で見た目確認
+2. 気になる箇所のみ `Ctrl+Shift+P (Mac: Cmd+Shift+P) → Markdown: Open Preview` で見た目確認
 3. 必要なら `Format Document`（整形）
 4. コミット→PR。PR本文に *目的/変更点/検証手順/ロールバック* を明記
 
