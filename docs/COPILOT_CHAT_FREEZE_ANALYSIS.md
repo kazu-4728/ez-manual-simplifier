@@ -9,9 +9,9 @@ GitHub Mobile アプリでリポジトリ内 Copilot Chat を開くとフリー�
 - 過去の修正報告書 (`docs/CHAT_FIX_REPORT.md`) と現在の構成を突き合わせ、再発要因を洗い出し。
 
 ## 3. 観察結果
-1. `git log` から、チャット修正コミット（"Fix repository chat functionality by adding GitHub Copilot configuration files"）が現在のブランチに入っていることを確認した。これにより、以前指摘された「Copilot 用構成ファイルの欠落」は解消済みであると判断できる。【bb57f1†L1-L12】
-2. `.github/copilot-instructions.md` をはじめ、パス別指示ファイルや Issue テンプレートなど、修正レポートで言及されたファイルが全て存在し、内容も有効な Markdown として記述されていた。例として、`copilot-instructions.md` にはプロジェクト構成・テスト手順などが整理されている。【F:.github/copilot-instructions.md†L1-L52】
-3. `docs/CHAT_FIX_REPORT.md` を確認すると、元の不具合原因が「Copilot Chat が参照する設定ファイルの欠落」であったことが記録されているが、現状は該当ファイルが揃っているため、当時の根本原因とは異なる要因が現在のフリーズを引き起こしていると考えられる。【F:docs/CHAT_FIX_REPORT.md†L6-L36】
+1. `git log` から、チャット修正コミット（"Fix repository chat functionality by adding GitHub Copilot configuration files"）が現在のブランチに入っていることを確認した。これにより、以前指摘された「Copilot 用構成ファイルの欠落」は解消済みであると判断できる。
+2. `.github/copilot-instructions.md` をはじめ、パス別指示ファイルや Issue テンプレートなど、修正レポートで言及されたファイルが全て存在し、内容も有効な Markdown として記述されていた。例として、`copilot-instructions.md` にはプロジェクト構成・テスト手順などが整理されている。
+3. `docs/CHAT_FIX_REPORT.md` を確認すると、元の不具合原因が「Copilot Chat が参照する設定ファイルの欠落」であったことが記録されているが、現状は該当ファイルが揃っているため、当時の根本原因とは異なる要因が現在のフリーズを引き起こしていると考えられる。
 
 ## 4. 考察
 - リポジトリ内に必要な Copilot 指示ファイルは揃っているため、GitHub Mobile アプリ側の処理（チャット機能本体の実装、もしくはリポジトリ指示ファイル取得ロジック）で新たな不具合が発生している可能性が高い。
