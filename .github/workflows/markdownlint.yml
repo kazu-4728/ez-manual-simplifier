@@ -12,6 +12,10 @@ jobs:
         shell: pwsh
         run: |
           ./tools/fix_md_blanklines.ps1
+      - name: Run PowerShell Markdown formatting script
+        shell: pwsh
+        run: |
+          ./tools/fix_md_blanklines.ps1
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: |
