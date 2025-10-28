@@ -1,21 +1,15 @@
-name: markdownlint
+name: markdownlint (disabled)
+
 on:
-  pull_request:
-  push:
-    paths: ["**/*.md", ".markdownlint.json"]
+  # 手動実行のみ（デフォルト無効）
+  workflow_dispatch:
+
 jobs:
   lint:
+    if: ${{ false }} # 明示的に無効化
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run PowerShell Markdown formatting script
-        shell: pwsh
-        run: |
-          ./tools/fix_md_blanklines.ps1
-      - name: Run PowerShell Markdown formatting script
-        shell: pwsh
-        run: |
-          ./tools/fix_md_blanklines.ps1
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: |
