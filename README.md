@@ -10,7 +10,9 @@ A tool to simplify complex manuals and documentation into easy-to-understand for
 
 ### Overview
 
-EZ Manual Simplifier helps users transform verbose and complex manuals into concise, accessible documentation. Whether you're dealing with technical specifications, user guides, or instruction manuals, this tool makes information more digestible.
+EZ Manual Simplifier helps users transform verbose and complex manuals into concise, accessible documentation.
+Whether you're dealing with technical specifications, user guides, or instruction manuals, this tool makes
+information more digestible.
 
 ### Features
 
@@ -54,7 +56,8 @@ ez-manual-simplifier/
 
 ### Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and
+the process for submitting pull requests.
 
 ### License
 
@@ -78,7 +81,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/kazu-4728/ez-manual-simplifier/issues) on GitHub.
+If you encounter any issues or have questions, please
+[open an issue](https://github.com/kazu-4728/ez-manual-simplifier/issues) on GitHub.
 
 ---
 

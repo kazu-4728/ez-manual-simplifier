@@ -19,6 +19,7 @@ This directory contains configuration files to enhance GitHub Copilot's understa
 ## Purpose
 
 These files help GitHub Copilot Chat understand:
+
 - Project structure and conventions
 - Coding standards and best practices
 - Testing strategies
@@ -26,15 +27,20 @@ These files help GitHub Copilot Chat understand:
 
 ## Path-Specific Instructions
 
-The `instructions/` directory contains files named `<directory>.instructions.md` that provide context for specific parts of the repository. When working in a particular directory, Copilot will reference the corresponding instructions file.
+The `instructions/` directory contains files named `<directory>.instructions.md` that provide context for specific
+parts of the repository. When working in a particular directory, Copilot will reference the corresponding
+instructions file.
 
 ## Custom Instructions
 
-The `copilot-instructions.md` file at the repository level provides general project context and conventions that apply across the entire codebase.
+The `copilot-instructions.md` file at the repository level provides general project context and conventions that
+apply across the entire codebase.
 
 ## Future Enhancements
 
-The `prompts/` directory is reserved for reusable prompt templates that can be shared across the project for common tasks like:
+The `prompts/` directory is reserved for reusable prompt templates that can be shared across the project for
+common tasks like:
+
 - Code review prompts
 - Testing prompts
 - Documentation generation prompts

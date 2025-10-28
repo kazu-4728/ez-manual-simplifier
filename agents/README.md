@@ -8,7 +8,8 @@
 
 ### Overview
 
-This directory contains agent configurations and instructions for AI-powered automation in the EZ Manual Simplifier project. Agents can help with various tasks such as code review, documentation generation, and testing.
+This directory contains agent configurations and instructions for AI-powered automation in the EZ Manual
+Simplifier project. Agents can help with various tasks such as code review, documentation generation, and testing.
 
 ### Agent Types
 
