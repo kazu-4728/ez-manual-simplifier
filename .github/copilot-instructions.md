@@ -8,4 +8,10 @@
 - 英語の技術用語(API, PRなど)はそのままで構わない
 - 簡潔で明確な表現を優先
 
+## 詳細ガイドライン
+プロジェクト固有の詳細は以下を参照：
+- [テストガイドライン](instructions/tests.instructions.md)
+- [ソースコードガイドライン](instructions/src.instructions.md)
+- [ドキュメントガイドライン](instructions/docs.instructions.md)
+
 <!-- Copilot Review Language: ja -->
