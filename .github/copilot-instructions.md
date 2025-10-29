@@ -56,6 +56,8 @@ core simplification via Gemini API, Phase 2 adds agent coordination, and Phase 3
 
 - **Code**: Python code uses English identifiers, docstrings, and comments
 
+- **Communication with Owner**: When reviewing code, providing explanations, or responding to the repository owner (@kazu-4728), always communicate in Japanese (日本語). This includes PR comments, code review feedback, and responses to questions.
+
 ### Documentation Structure
 
 - `docs/PROJECT_REQUIREMENTS.md`: Contains 3-phase roadmap and technical specs
