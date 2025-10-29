@@ -2,7 +2,7 @@
 
 > 開発手順・テスト・ブランチ運用・設計ガイドなど。
 
-- アーキテクチャ: `docs/dev/ARCHITECTURE_GUIDE.md`（今後拡充）
+- アーキテクチャ: `docs/dev/ARCHITECTURE_GUIDE.md`（予定・未作成）
 - Lint/CI: `.github/workflows/` / `.markdownlint.json`（存在すれば参照）
 - スクリプト: `tools/`（存在すれば参照）
 

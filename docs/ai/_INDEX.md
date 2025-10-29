@@ -2,7 +2,7 @@
 
 > Copilot / Codex / GPT / GeminiCLI など。
 
-- Copilot Introduction: `.github/COPILOT_INTRODUCTION*.md`（**保持**）
+- Copilot 設定: `.github/copilot-instructions.md`（**保持**）
 - Copilot 補足: `.github/copilot-instructions.md`（強制せずガイドとして参照）
 - エージェント運用: `ops/agents/AGENTS_DETAILS.md`
 

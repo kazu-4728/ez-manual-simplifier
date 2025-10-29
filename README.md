@@ -10,7 +10,7 @@
 - `/ops` …… 作業エリア（ドラフトや内部向け）
 - `/.github` …… GitHub設定（Copilot Introduction など）
 
-> Copilot の初期説明は **`.github/COPILOT_INTRODUCTION*.md`** にあります。**削除・上書きしません**。
+> Copilot の設定・指示は **`.github/copilot-instructions.md`** にあります。**削除・上書きしません**。
 
 ## まずやること（段階0：非破壊の索引追加）
 1. **INDEX作成**：`/docs/_INDEX.md` とサブINDEXを追加（既存ファイルは移動しない）
@@ -21,7 +21,7 @@
 - 開発系：[`docs/dev/_INDEX.md`](docs/dev/_INDEX.md)
 - AI/エージェント：[`docs/ai/_INDEX.md`](docs/ai/_INDEX.md)
 - 運用・作業：[`docs/ops/_INDEX.md`](docs/ops/_INDEX.md)
-- Copilot（参考）：[`.github/COPILOT_INTRODUCTION*.md`](.github/)
+- Copilot（参考）：[`.github/copilot-instructions.md`](.github/copilot-instructions.md)
 
 ## 編集方針（簡潔）
 - **要約禁止／構造維持**：原文は残し、隣に“やさしい版”を並置
