@@ -1,32 +1,121 @@
-# マニュアル簡易化サイト（リポジトリ案内）
+# EZ Manual Simplifier
 
-> 分からない人が見ても分かる——それがマニュアル。ここは**サイトを作るためのリポジトリ**です。Copilotのイントロは保持しつつ、ユーザー案内は本ページで行います。
-
-## 構成（壊さない方針／公開=Pages、裏方=Workers）
-- `/site` …… GitHub Pages（フロント）
-- `/workers` …… Cloudflare Workers（スクレイピング等の中継）
-- `/data` …… 生成物（JSON/画像など）
-- `/docs` …… ドキュメント（開発・運用・AIガイド）
-- `/ops` …… 作業エリア（ドラフトや内部向け）
-- `/.github` …… GitHub設定（Copilot Introduction など）
-
-> Copilot の設定・指示は **`.github/copilot-instructions.md`** にあります。**削除・上書きしません**。
-
-## まずやること（段階0：非破壊の索引追加）
-1. **INDEX作成**：`/docs/_INDEX.md` とサブINDEXを追加（既存ファイルは移動しない）
-2. **READMEから導線**：本READMEに目次を置き、Copilot Intro ではなく**リポジトリ全体案内**を提示
-3. **Pages/Workersの入口だけ**：`/site/README.md` と `/workers/README.md` を最小で用意
-
-## 目次（入口）
-- 開発系：[`docs/dev/_INDEX.md`](docs/dev/_INDEX.md)
-- AI/エージェント：[`docs/ai/_INDEX.md`](docs/ai/_INDEX.md)
-- 運用・作業：[`docs/ops/_INDEX.md`](docs/ops/_INDEX.md)
-- Copilot（参考）：[`.github/copilot-instructions.md`](.github/copilot-instructions.md)
-
-## 編集方針（簡潔）
-- **要約禁止／構造維持**：原文は残し、隣に“やさしい版”を並置
-- **Lintはローカル吸収**：CIの強制は慎重に（運用が止まらないことを最優先）
-- **非破壊**：移動は段階的に。まずはINDEXで束ね、参照切れゼロで進める
+[English](#english) | [日本語](README.ja.md)
 
 ---
-このREADMEは**ユーザー案内**です。Copilotイントロは保持し、ここから全体像に誘導します。
+
+## English
+
+A tool that simplifies complex manuals and documents into easy-to-understand formats.
+
+### Overview
+
+EZ Manual Simplifier helps users transform verbose and complex manuals into concise and accessible documents. Whether it's technical specifications, user guides, or instruction manuals, this tool makes information more comprehensible.
+
+### Features
+
+- **Simplified Language**: Converts complex terminology into plain language
+
+- **Structured Output**: Organizes information into clear, logical sections
+
+- **Multiple Format Support**: Works with various document formats
+
+- **Customizable Simplification**: Adjust the level of simplification to suit your needs
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/kazu-4728/ez-manual-simplifier.git
+cd ez-manual-simplifier
+
+# Install dependencies
+# (Installation instructions will be added as the project develops)
+```
+
+### Usage
+
+```bash
+# Basic usage example
+# (Usage instructions will be added as the project develops)
+```
+
+### Project Structure
+
+```text
+ez-manual-simplifier/
+├── src/           # Source code
+├── tests/         # Test files
+├── docs/          # Documentation
+├── examples/      # Sample files
+├── LICENSE        # MIT License
+└── README.md      # This file
+```
+
+### Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the pull request submission process.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+### Author
+
+- **kazu-4728** - [GitHub Profile](https://github.com/kazu-4728)
+
+### 📋 Project Documentation
+
+#### Key Documents
+
+- [**Project Requirements**](docs/PROJECT_REQUIREMENTS.md) - Detailed requirements and specifications
+
+- [**Work Log**](docs/WORK_LOG.md) - Real-time progress and task management
+
+- [**Development Guide**](docs/DEVELOPMENT_GUIDE.md) - Development procedures and coding standards
+
+#### Current Status
+
+- **Phase 1**: 🔄 Building Manual Simplification Site (In Progress)
+
+- **Progress**: 5% (Requirements definition completed)
+
+- **Next Milestone**: Basic functionality implementation (Scheduled for December 25)
+
+### Roadmap
+
+#### Phase 1: Manual Simplification Site (1-2 weeks)
+
+- [x] Project requirements definition
+
+- [ ] Core simplification engine (Gemini API integration)
+
+- [ ] Web interface
+
+- [ ] Multiple document format support
+
+- [ ] Deployment on GitHub Pages
+
+#### Phase 2: Agent Coordination System (2-3 weeks)
+
+- [ ] GitHub Actions automation
+
+- [ ] Automatic issue creation system
+
+- [ ] Multiple agent integration
+
+- [ ] Work log system
+
+#### Phase 3: Fully Automated System (1-2 months)
+
+- [ ] Automatic website creation functionality
+
+- [ ] Advanced agent coordination
+
+- [ ] iPhone support
+
+- [ ] API for integration with other tools
+
+### Support
+
+If you encounter any issues or have questions, please [create an issue](https://github.com/kazu-4728/ez-manual-simplifier/issues) on GitHub.
