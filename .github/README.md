@@ -1,46 +1,11 @@
-# GitHub Copilot Configuration
+> **このREADMEはトップ表示用ではありません。**
+> トップはルートの [`/README.md`](../README.md) を参照してください。
+> Copilotの動作ガイドは `.github/copilot-instructions.md` を参照（**削除・改名しない**）。
 
-This directory contains configuration files to enhance GitHub Copilot's understanding of the repository.
+# .github ディレクトリについて
+- GitHub設定ファイル群の保管場所です。
+- リポジトリのユーザー案内はルート `README.md` で行います。
+- Copilot関連は以下を参照します：
+  - `.github/copilot-instructions.md`（保持用ガイド）
 
-## Structure
-
-```text
-.github/
-├── copilot-instructions.md       # Repository-wide instructions
-├── instructions/                 # Path-specific instructions
-│   ├── src.instructions.md      # Instructions for /src/ directory
-│   ├── tests.instructions.md    # Instructions for /tests/ directory
-│   └── docs.instructions.md     # Instructions for /docs/ directory
-├── prompts/                      # Reusable prompt templates (future)
-├── workflows/                    # GitHub Actions workflows
-└── pull_request_template.md     # PR template
-```
-
-## Purpose
-
-These files help GitHub Copilot Chat understand:
-
-- Project structure and conventions
-- Coding standards and best practices
-- Testing strategies
-- Documentation requirements
-
-## Path-Specific Instructions
-
-The `instructions/` directory contains files named `<directory>.instructions.md` that provide context for specific
-parts of the repository. When working in a particular directory, Copilot will reference the corresponding
-instructions file.
-
-## Custom Instructions
-
-The `copilot-instructions.md` file at the repository level provides general project context and conventions that
-apply across the entire codebase.
-
-## Future Enhancements
-
-The `prompts/` directory is reserved for reusable prompt templates that can be shared across the project for
-common tasks like:
-
-- Code review prompts
-- Testing prompts
-- Documentation generation prompts
+> 役割分担を明確にするため、本READMEは**スタブ**です。本文ドキュメントはルート/ docs側に配置します。
