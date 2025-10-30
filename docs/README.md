@@ -22,6 +22,8 @@ This directory contains detailed documentation for the EZ Manual Simplifier proj
 
 - [Examples](../examples/) - Example usage and templates
 
+- [Manual Workspace](manual/README.md) - Phase 1 manual work hub (structure, procedures, resources) / フェーズ1のマニュアル作業ハブ（構成・手順・資料）
+
 ## 📊 Project Status
 
 ### Current Phase: Phase 1 - マニュアル簡易化サイトの構築
