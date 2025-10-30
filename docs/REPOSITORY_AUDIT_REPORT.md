@@ -59,7 +59,7 @@ workers/
 | docs/PROJECT_REQUIREMENTS.md | md | Phase1〜3の要件定義書。Gemini APIやWeb UIなどの必須機能を規定。 | 2025-10-30 | 実装確認時の基準文書。 |
 | docs/IMPLEMENTATION_SUMMARY.md | md | 実装済み機能と残課題の整理。Phase1進捗80%を報告。 | 2025-10-30 | src/converter.py, src/simplifier.py の現状を反映。 |
 | docs/WORK_LOG.md | md | 日次作業記録とタスクリスト。Gemini統合など未完タスクを列挙。 | 2025-10-30 | 実装サマリーと整合。 |
-| docs/README.md | md | ドキュメント入口。Phase1進捗15%と記載されており最新情報と不一致。 | 2025-10-30 | 要件・実装との整合が必要。 |
+| docs/README.md | md | ドキュメント入口。Phase1進捗15%と記載されているが、最新の再評価（行134-138）では15〜20%が実態に近く、docs/IMPLEMENTATION_SUMMARY.mdの80%は過大評価。必要に応じて値の更新・整合を推奨。 | 2025-10-30 | 要件・実装との整合が必要。 |
 | docs/DEVELOPMENT_GUIDE.md | md | 開発手順とワークフローの詳細。 | 2025-10-30 | `.github/instructions/src.instructions.md` と内容が補完関係。 |
 | docs/BRANCH_WORKFLOW_GUIDE.md | md | ブランチ戦略の手順書。 | 2025-10-30 | CONTRIBUTINGドキュメントと一貫。 |
 | docs/CHAT_FIX_REPORT.md | md | Copilot Chat整備の経緯レポート。 | 2025-10-30 | `.github/instructions/` や CODEOWNERS 導入背景を記録。 |
