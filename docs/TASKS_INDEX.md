@@ -28,5 +28,5 @@
 
 ### 追記メモ
 - 元々の目的は HTML/PDF/Excel/Word など多形態への出力を見据えており、Markdown/テキスト限定という記述は GPT 作業メモに基づく暫定情報である。
-- markdownlint は VS Code 側で無効化しており、レポジトリ設定での強制は作業効率を阻害するため慎重に扱うこと。必要な整形は手動で維持する。 
+- markdownlint は VS Code 側では無効化しているが、CI（GitHub Actions）で全 .md ファイルに対して自動チェックが実行される。ローカルでの整形には `tools/fix_md_blanklines.ps1` を利用可能。VS Code のローカル設定とCIの強制チェックを明確に区別すること。
 - 次フェーズでは Gemini 連携と Web UI の最小実装を優先し、作業ログに着手記録を残すことが求められる。
