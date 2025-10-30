@@ -22,7 +22,7 @@ This directory contains detailed documentation for the EZ Manual Simplifier proj
 
 - [Examples](../examples/) - Example usage and templates
 
-- [Manual Workspace](manual/README.md) - フェーズ1のマニュアル作業ハブ（構成・手順・資料）
+- [Manual Workspace](manual/README.md) - Phase 1 manual work hub (structure, procedures, resources) / フェーズ1のマニュアル作業ハブ（構成・手順・資料）
 
 ## 📊 Project Status
 
