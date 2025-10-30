@@ -94,7 +94,6 @@
 ブラウザで EZ Manual Simplifier のサイトを開きます。
 ```
 https://kazu-4728.github.io/ez-manual-simplifier/
-```
 
 ### ステップ3: ファイルをアップロード
 「ファイルを選択」ボタンをクリックして、変換したい文書をアップロードします。
