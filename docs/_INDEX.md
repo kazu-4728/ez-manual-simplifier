@@ -5,6 +5,9 @@
 ## 開発（dev）
 - サブ目次: [`docs/dev/_INDEX.md`](dev/_INDEX.md)
 
+## マニュアル（manual）
+- 入口: [`docs/manual/README.md`](manual/README.md)
+
 ## AI / Agents（ai）
 - サブ目次: [`docs/ai/_INDEX.md`](ai/_INDEX.md)
 
