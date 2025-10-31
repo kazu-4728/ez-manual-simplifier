@@ -1,20 +1,20 @@
-# Documentation Instructions
+# ドキュメント指示
 
-This directory stores the core documents that guide the relaunch of EZ Manual Simplifier.
+このディレクトリは、EZ Manual Simplifierの再開発を導くコアドキュメントを保存します。
 
-## Current Files
+## 現在のファイル
 
-- `PROJECT_REQUIREMENTS.md`: High-level product goals and scope for the rebooted project
-- `IMPLEMENTATION_SUMMARY.md`: Historical implementation phases and context from the previous iteration
+- `PROJECT_REQUIREMENTS.md`: 再起動されたプロジェクトの高レベルな製品目標とスコープ
+- `IMPLEMENTATION_SUMMARY.md`: 以前のイテレーションからの実装フェーズと文脈の履歴
 
-## Maintenance Guidelines
+## メンテナンスガイドライン
 
-- Keep both documents up to date as the project evolves
-- Use clear headings and bullet lists so Copilot can surface requirements effectively
-- Prefer Japanese for stakeholder-facing notes and English for technical checklists when possible
+- プロジェクトの進化に合わせて両方のドキュメントを最新の状態に保つ
+- Copilotが要件を効果的に把握できるよう、明確な見出しと箇条書きリストを使用する
+- ステークホルダー向けのノートは日本語を優先し、技術的なチェックリストは可能な限り英語を使用する
 
-## Contribution Tips
+## 貢献のヒント
 
-- When adding new documentation, confirm it is essential for Copilot or project planning before committing
-- Follow standard Markdown conventions (headings with `#`, blank line before/after lists)
-- Cross-link related documents to keep navigation simple in the minimal repository
+- 新しいドキュメントを追加する際は、コミット前にCopilotまたはプロジェクト計画にとって不可欠であることを確認する
+- 標準的なMarkdown規則に従う（見出しには `#`、リストの前後に空白行）
+- ミニマルなリポジトリでナビゲーションをシンプルに保つため、関連ドキュメントをクロスリンクする
