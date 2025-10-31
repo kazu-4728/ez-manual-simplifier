@@ -1,4 +1,4 @@
-再始動のため最小構成へ削除。復元は `v-preclean` から可能。
+> **注意**: 再始動のため最小構成へ削除。復元は `v-preclean` から可能。
 
 # EZ Manual Simplifier
 
