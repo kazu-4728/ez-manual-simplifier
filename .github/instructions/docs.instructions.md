@@ -4,14 +4,14 @@
 
 ## 現在のファイル
 
-- `PROJECT_REQUIREMENTS.md`: 再起動されたプロジェクトの高レベルな製品目標とスコープ
-- `IMPLEMENTATION_SUMMARY.md`: 以前のイテレーションからの実装フェーズと文脈の履歴
+- `docs/PROJECT_REQUIREMENTS.md`: 再起動されたプロジェクトの高レベルな製品目標とスコープ
+- `docs/IMPLEMENTATION_SUMMARY.md`: 以前のイテレーションからの実装フェーズと文脈の履歴
 
 ## メンテナンスガイドライン
 
 - プロジェクトの進化に合わせて両方のドキュメントを最新の状態に保つ
 - Copilotが要件を効果的に把握できるよう、明確な見出しと箇条書きリストを使用する
-- ステークホルダー向けのノートは日本語を優先し、技術的なチェックリストは可能な限り英語を使用する
+- コアドキュメント（例: PROJECT_REQUIREMENTS.md, README.md）は日本語で記述し、コード関連の技術指示（例: src.instructions.md, tests.instructions.md）は英語で記述する
 
 ## 貢献のヒント
 
