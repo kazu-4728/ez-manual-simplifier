@@ -1,0 +1,3 @@
+markitdown[all]>=0.1.3  # ドキュメント変換
+pytest>=8.0.0  # テストフレームワーク
+# google-generativeai>=0.3.0  # 将来のGemini統合用
