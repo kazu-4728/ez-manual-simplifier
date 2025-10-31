@@ -1,0 +1,18 @@
+[
+  { "title": "タスク索引", "path": "../docs/TASKS_INDEX.md" },
+  { "title": "プロジェクト要件", "path": "../docs/PROJECT_REQUIREMENTS.md" },
+  { "title": "実装サマリー", "path": "../docs/IMPLEMENTATION_SUMMARY.md" },
+  { "title": "開発ガイド", "path": "../docs/DEVELOPMENT_GUIDE.md" },
+  { "title": "ブランチ運用ガイド", "path": "../docs/BRANCH_WORKFLOW_GUIDE.md" },
+  { "title": "リポジトリ監査レポート", "path": "../docs/REPOSITORY_AUDIT_REPORT.md" },
+  { "title": "チャット修正レポート", "path": "../docs/CHAT_FIX_REPORT.md" },
+  { "title": "作業ログ", "path": "../docs/WORK_LOG.md" },
+  { "title": "ドキュメントREADME", "path": "../docs/README.md" },
+  { "title": "プロジェクトREADME", "path": "../README.md" },
+  { "title": "アーキテクチャ (英語)", "path": "../ARCHITECTURE.md" },
+  { "title": "アーキテクチャ (日本語)", "path": "../ARCHITECTURE.ja.md" },
+  { "title": "コントリビューションガイド (英語)", "path": "../CONTRIBUTING.md" },
+  { "title": "コントリビューションガイド (日本語)", "path": "../CONTRIBUTING.ja.md" },
+  { "title": "コード規範 (英語)", "path": "../CODE_OF_CONDUCT.md" },
+  { "title": "コード規範 (日本語)", "path": "../CODE_OF_CONDUCT.ja.md" }
+]

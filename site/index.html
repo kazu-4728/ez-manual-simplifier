@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EZ Manual Simplifier Docs</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript-message">
+        このサイトを閲覧するには JavaScript を有効にしてください。
+      </div>
+    </noscript>
+    <div id="app" class="app">
+      <aside class="sidebar" aria-label="ドキュメント一覧">
+        <div class="sidebar__header">
+          <h1 class="app-title">EZ Manual Simplifier</h1>
+          <label class="search">
+            <span class="search__label">検索</span>
+            <input
+              id="searchInput"
+              class="search__input"
+              type="search"
+              placeholder="タイトルまたはパスで検索"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+        <nav class="nav" aria-label="ナビゲーション">
+          <ul id="navList" class="nav__list"></ul>
+        </nav>
+      </aside>
+      <main class="main" aria-live="polite">
+        <header class="main__header">
+          <nav id="breadcrumb" class="breadcrumb" aria-label="パンくずリスト"></nav>
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+        </header>
+        <article id="content" class="content" aria-live="polite" aria-busy="false"></article>
+      </main>
+    </div>
+    <script src="./vendor/marked.min.js"></script>
+    <script src="./vendor/dompurify.min.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
