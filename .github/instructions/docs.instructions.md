@@ -1,25 +1,20 @@
 # Documentation Instructions
 
-This directory contains project documentation in both English and Japanese.
+This directory stores the core documents that guide the relaunch of EZ Manual Simplifier.
 
-## Key Documents
+## Current Files
 
-- `PROJECT_REQUIREMENTS.md`: Complete 3-phase roadmap and technical specifications
-- `DEVELOPMENT_GUIDE.md`: Comprehensive development workflow guide (Japanese)
-- `WORK_LOG.md`: Project progress tracking and task history
-- `IMPLEMENTATION_SUMMARY.md`: Summary of completed implementations
-- `BRANCH_WORKFLOW_GUIDE.md`: Git workflow and branching strategy
+- `PROJECT_REQUIREMENTS.md`: High-level product goals and scope for the rebooted project
+- `IMPLEMENTATION_SUMMARY.md`: Historical implementation phases and context from the previous iteration
 
-## Documentation Standards
+## Maintenance Guidelines
 
-- Maintain bilingual approach (English and Japanese)
-- Use markdown format with proper structure
-- Follow `.markdownlint.json` configuration
-- Run `tools/fix_md_blanklines.ps1` for formatting
+- Keep both documents up to date as the project evolves
+- Use clear headings and bullet lists so Copilot can surface requirements effectively
+- Prefer Japanese for stakeholder-facing notes and English for technical checklists when possible
 
-## Markdown Rules
+## Contribution Tips
 
-- MD013 (line length) is disabled
-- MD001 (heading levels) is disabled
-- All code blocks must have language specification
-- Proper blank lines around lists and headings
+- When adding new documentation, confirm it is essential for Copilot or project planning before committing
+- Follow standard Markdown conventions (headings with `#`, blank line before/after lists)
+- Cross-link related documents to keep navigation simple in the minimal repository

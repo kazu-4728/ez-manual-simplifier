@@ -1,30 +1,26 @@
 # Test Instructions
 
-This directory contains test files for the EZ Manual Simplifier project.
+The `tests/` directory will be reintroduced alongside new source modules. Use this guide when rebuilding
+the test suite.
 
-## Test Structure
+## Test Layout
 
-- Tests use manual path insertion: `sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))`
-- All test files follow the `test_*.py` naming convention
-- Use pytest framework for running tests
-
-## Key Test Files
-
-- `test_simplifier.py`: Tests for core simplification functionality
-- `test_converter.py`: Tests for document format conversion
-- `test_simplifier_integration.py`: Integration tests
+- Place unit tests under `tests/` mirroring the package structure in `src/`
+- Name files using `test_*.py` so pytest can discover them automatically
+- Keep fixtures small and reuseable; prefer factory functions over global state
 
 ## Running Tests
 
 ```bash
-# Run all tests
+# Run the entire suite
 python -m pytest
 
-# Run specific test file
-python tests/test_simplifier.py
+# Run a specific file
+python -m pytest tests/test_simplifier.py
 ```
 
-## Test Requirements
+## Quality Expectations
 
-- Development dependencies are in `extras_require["dev"]` in setup.py
-- Minimum pytest version: 7.0.0
+- Aim for high-coverage tests on the text simplification logic
+- Include regression tests for previously fixed issues when restoring functionality
+- Document tricky behaviours in test docstrings to assist Copilot's suggestions

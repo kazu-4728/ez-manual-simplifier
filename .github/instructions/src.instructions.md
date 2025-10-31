@@ -1,23 +1,23 @@
 # Source Code Instructions
 
-This directory contains the core Python source code for the EZ Manual Simplifier project.
+The `src/` directory was cleared during the repository reset. Recreate the package only when new
+functionality is ready.
 
-## Key Files
+## Expected Structure
 
-- `simplifier.py`: Main simplification logic with `simplify_text()` function
-- `converter.py`: Document format conversion using markitdown library
-- `__init__.py`: Package initialization
+- `src/`: Python package root for the manual simplification engine
+- `src/__init__.py`: Exposes public entry points
+- Additional modules should be introduced per feature (e.g., `simplifier.py`, `converter.py`)
 
 ## Development Guidelines
 
-- All functions must have type hints
-- Use English for code identifiers, docstrings, and comments
-- Follow PEP 8 style guidelines
-- Validate input parameters (e.g., simplification level must be in ["low", "medium", "high"])
-- Error handling using ValueError for invalid inputs
+- Use Python 3.11+ type hints and dataclasses where appropriate
+- Keep business logic in pure functions or small classes to help Copilot reason about them
+- Write docstrings in English; include Japanese comments only when necessary for stakeholders
+- Validate all external inputs and raise descriptive `ValueError` exceptions for invalid states
 
-## Testing
+## Testing Hooks
 
-- Tests are located in `/tests/` directory
-- Use manual path insertion for imports in tests
-- Run tests with: `python -m pytest`
+- Mirror each new module with targeted tests under `tests/`
+- Provide minimal reproduction snippets in docstrings to improve Copilot completions
+- Run `python -m pytest` locally before submitting pull requests
