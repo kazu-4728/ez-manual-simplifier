@@ -65,6 +65,18 @@ Thumbs.db
 *.swp
 *~
 
+# Environment variables (CRITICAL: Never commit API keys!)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Cloudflare Workers
+.wrangler/
+wrangler.toml.local
+
 # Project-specific
 output/
 temp/
