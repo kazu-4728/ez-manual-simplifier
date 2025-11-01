@@ -97,12 +97,22 @@
 
 | タスク | 状態 | 完了率 |
 |--------|------|---------|
-| コア構造 | ✅ Complete | 100% |
-| markitdown統合 | ✅ Complete | 100% |
-| CLI実装 | ✅ Complete | 100% |
-| テストカバレッジ | ✅ Complete | 100% |
+| プロジェクト構造確立 | ✅ Complete | 100% |
+| ドキュメント変換機能 | ✅ Complete | 100% |
+| 簡易化パイプライン構造 | ✅ Complete | 100% |
+| テストフレームワーク構築 | ✅ Complete | 100% |
 | Gemini API統合 | ⏳ Pending | 0% |
-| **Phase 1合計** | **🔄 In Progress** | **80%** |
+| コスト最適化実装 | ⏳ Pending | 0% |
+| コンテキストオーバー防止 | ⏳ Pending | 0% |
+| リサーチ機能実装 | ⏳ Pending | 0% |
+| Web API実装 | ⏳ Pending | 0% |
+| フロントエンド実装 | ⏳ Pending | 0% |
+| 出力形式対応 | ⏳ Pending | 0% |
+| デプロイ設定 | ⏳ Pending | 0% |
+| セキュリティ実装 | ⏳ Pending | 0% |
+| **Phase 1合計** | **🔄 In Progress** | **15%** |
+
+**注意**: 以前の80%完了報告は誤りでした。正確な進捗は15%です。
 
 ## 次のステップ (Phase 1 完了まで)
 
