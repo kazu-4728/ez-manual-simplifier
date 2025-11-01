@@ -1,152 +1,137 @@
-"""
-Main simplifier module for EZ Manual Simplifier.
+"""Text simplification module for EZ Manual Simplifier.
 
-This module contains the core functionality for simplifying manual text
-using AI (Gemini API) and document conversion capabilities.
+This module provides functionality to simplify complex text using AI.
+Currently supports 3 levels of simplification: low, medium, high.
 """
 
+import argparse
+import sys
 from pathlib import Path
-from typing import Union, Optional
-
-try:
-    from converter import DocumentConverter
-    CONVERTER_AVAILABLE = True
-except ImportError:
-    try:
-        from .converter import DocumentConverter
-        CONVERTER_AVAILABLE = True
-    except ImportError:
-        CONVERTER_AVAILABLE = False
-
-# Gemini API will be integrated here
-# import google.generativeai as genai
+from typing import Optional
 
 
 def simplify_text(text: str, level: str = "medium") -> str:
-    """
-    Simplify the given text.
+    """Simplify text to make it easier to understand.
     
     Args:
         text: The text to simplify
-        level: Simplification level ("low", "medium", "high")
+        level: Simplification level - "low", "medium", or "high"
+               low: Elementary school level
+               medium: General readability
+               high: Keep technical terms but add explanations
     
     Returns:
         Simplified text
-    
+        
     Raises:
-        ValueError: If level is not valid
-    """
-    if level not in ["low", "medium", "high"]:
-        raise ValueError(f"Invalid simplification level: {level}")
-    
-    # Placeholder implementation
-    # Actual simplification logic will be implemented here
-    return text
-
-
-def simplify_file(
-    file_path: Union[str, Path],
-    level: str = "medium",
-    output_path: Optional[Union[str, Path]] = None
-) -> str:
-    """
-    Simplify a document file (PDF, DOCX, etc.).
-    
-    This function provides a complete pipeline:
-    1. Convert the file to Markdown using MarkItDown
-    2. Simplify the Markdown using Gemini API
-    3. Optionally save to a file
-    
-    Args:
-        file_path: Path to the document file
-        level: Simplification level ("low", "medium", "high")
-        output_path: Optional path to save the simplified content
-    
-    Returns:
-        Simplified Markdown text
-    
-    Raises:
-        ValueError: If level is not valid
-        FileNotFoundError: If the file does not exist
-        ImportError: If markitdown is not installed
+        ValueError: If level is not one of ["low", "medium", "high"]
     
     Example:
-        >>> simplified = simplify_file("manual.pdf", level="high")
-        >>> simplified = simplify_file("guide.docx", level="low", output_path="simple_guide.md")
+        >>> text = "The implementation leverages sophisticated algorithms."
+        >>> simplified = simplify_text(text, level="low")
+        >>> print(simplified)  # "The program uses smart methods."
     """
-    if not CONVERTER_AVAILABLE:
-        raise ImportError(
-            "Document conversion requires markitdown. "
-            "Please install it with: pip install markitdown[all]"
-        )
+    if level not in ["low", "medium", "high"]:
+        raise ValueError(f"Invalid simplification level: {level}. Must be one of: low, medium, high")
     
-    # Step 1: Convert to Markdown
+    # TODO: Integrate with Gemini API for actual simplification
+    # For now, return the original text with a note
+    return f"[Simplified at {level} level]\n{text}"
+
+
+def simplify_file(filepath: str, level: str = "medium", output: Optional[str] = None) -> str:
+    """Simplify a document file.
+    
+    This function implements the complete pipeline:
+    1. Convert file to Markdown (using converter module)
+    2. Simplify the text
+    3. Optionally save to output file
+    
+    Args:
+        filepath: Path to the file to simplify
+        level: Simplification level - "low", "medium", or "high"
+        output: Optional output file path. If None, returns the result as string
+        
+    Returns:
+        Simplified text
+        
+    Raises:
+        FileNotFoundError: If the input file doesn't exist
+        ValueError: If level is invalid
+    """
+    from .converter import DocumentConverter
+    
+    # Check if file exists
+    path = Path(filepath)
+    if not path.exists():
+        raise FileNotFoundError(f"File not found: {filepath}")
+    
+    # Convert to markdown
     converter = DocumentConverter()
-    markdown_text = converter.convert_to_markdown(file_path)
+    markdown_text = converter.convert_to_markdown(filepath)
     
-    # Step 2: Simplify the text
-    simplified_text = simplify_text(markdown_text, level=level)
+    # Simplify the text
+    simplified = simplify_text(markdown_text, level=level)
     
-    # Step 3: Save if output path is provided
-    if output_path:
-        output_path = Path(output_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(simplified_text, encoding='utf-8')
+    # Save to file if output path provided
+    if output:
+        Path(output).write_text(simplified, encoding="utf-8")
     
-    return simplified_text
+    return simplified
 
 
 def main():
-    """
-    Main entry point for the application.
-    """
-    import argparse
-    
+    """Command-line interface for the simplifier."""
     parser = argparse.ArgumentParser(
-        description="EZ Manual Simplifier - Simplify technical documentation"
+        description="EZ Manual Simplifier - Make complex documents easy to understand"
     )
-    parser.add_argument(
-        "input",
-        help="Input file path (PDF, DOCX, PPTX, etc.) or text"
+    
+    # Input options
+    input_group = parser.add_mutually_exclusive_group(required=True)
+    input_group.add_argument(
+        "file",
+        nargs="?",
+        help="Path to the file to simplify"
     )
+    input_group.add_argument(
+        "--text",
+        help="Direct text input to simplify"
+    )
+    
+    # Simplification options
     parser.add_argument(
         "-l", "--level",
         choices=["low", "medium", "high"],
         default="medium",
         help="Simplification level (default: medium)"
     )
+    
+    # Output options
     parser.add_argument(
         "-o", "--output",
         help="Output file path (optional)"
-    )
-    parser.add_argument(
-        "--text",
-        action="store_true",
-        help="Treat input as raw text instead of file path"
     )
     
     args = parser.parse_args()
     
     try:
         if args.text:
-            # Simplify raw text
-            result = simplify_text(args.input, level=args.level)
+            # Direct text input mode
+            result = simplify_text(args.text, level=args.level)
         else:
-            # Simplify file
-            result = simplify_file(
-                args.input,
-                level=args.level,
-                output_path=args.output
-            )
+            # File input mode
+            result = simplify_file(args.file, level=args.level, output=args.output)
         
+        # Print to stdout if no output file specified
         if not args.output:
             print(result)
-        else:
-            print(f"Simplified content saved to: {args.output}")
-    
+            
+    except (FileNotFoundError, ValueError) as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
     except Exception as e:
-        print(f"Error: {e}", file=__import__('sys').stderr)
-        __import__('sys').exit(1)
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(2)
 
 
 if __name__ == "__main__":

@@ -1,134 +1,125 @@
-"""
-Document converter module using MarkItDown.
+"""Document converter module using markitdown library.
 
 This module provides functionality to convert various document formats
-(PDF, DOCX, PPTX, XLSX, images, etc.) to Markdown format.
+(PDF, DOCX, PPTX, XLSX, images, HTML, audio) to Markdown format.
 """
 
+import sys
 from pathlib import Path
-from typing import Union
-
-try:
-    from markitdown import MarkItDown
-    MARKITDOWN_AVAILABLE = True
-except ImportError:
-    MARKITDOWN_AVAILABLE = False
+from typing import Optional
 
 
 class DocumentConverter:
-    """
-    Convert various document formats to Markdown using MarkItDown.
+    """Convert various document formats to Markdown using markitdown.
     
-    Supported formats:
-    - PDF (.pdf)
-    - Microsoft Word (.docx, .doc)
-    - Microsoft PowerPoint (.pptx, .ppt)
-    - Microsoft Excel (.xlsx, .xls)
-    - Images (.jpg, .jpeg, .png)
-    - HTML (.html, .htm)
-    - Text (.txt, .md)
-    - Audio files (with transcription)
+    Supports: PDF, DOCX, PPTX, XLSX, images, HTML, audio files
     """
     
     def __init__(self):
-        """Initialize the converter."""
-        if not MARKITDOWN_AVAILABLE:
-            raise ImportError(
-                "markitdown is not installed. "
-                "Please install it with: pip install markitdown[all]"
-            )
-        self.converter = MarkItDown()
-    
-    def convert_to_markdown(self, file_path: Union[str, Path]) -> str:
-        """
-        Convert a file to Markdown format.
-        
-        Args:
-            file_path: Path to the file to convert
-        
-        Returns:
-            Markdown-formatted text content
+        """Initialize the converter.
         
         Raises:
-            FileNotFoundError: If the file does not exist
-            ValueError: If the file format is not supported
-            Exception: If conversion fails
-        
-        Example:
-            >>> converter = DocumentConverter()
-            >>> markdown = converter.convert_to_markdown("manual.pdf")
-            >>> print(markdown)
+            ImportError: If markitdown library is not installed
         """
-        file_path = Path(file_path)
+        try:
+            from markitdown import MarkItDown
+            self._converter = MarkItDown()
+        except ImportError:
+            raise ImportError(
+                "markitdown library is required. Install it with: pip install markitdown[all]"
+            )
+    
+    def convert_to_markdown(self, filepath: str) -> str:
+        """Convert a file to Markdown format.
         
-        if not file_path.exists():
-            raise FileNotFoundError(f"File not found: {file_path}")
+        Args:
+            filepath: Path to the file to convert
+            
+        Returns:
+            Markdown-formatted text
+            
+        Raises:
+            FileNotFoundError: If the file doesn't exist
+            ValueError: If the file format is not supported
+            Exception: For other conversion errors
+        """
+        path = Path(filepath)
+        
+        if not path.exists():
+            raise FileNotFoundError(f"File not found: {filepath}")
         
         try:
-            result = self.converter.convert(str(file_path))
+            result = self._converter.convert(str(path))
             return result.text_content
         except Exception as e:
-            raise Exception(f"Failed to convert {file_path}: {str(e)}")
+            raise Exception(f"Failed to convert file: {e}")
     
     def convert_url_to_markdown(self, url: str) -> str:
-        """
-        Convert a URL to Markdown format.
+        """Convert a URL to Markdown format.
         
         Args:
-            url: URL to convert (supports YouTube, web pages, etc.)
-        
+            url: URL to convert
+            
         Returns:
-            Markdown-formatted text content
-        
+            Markdown-formatted text
+            
         Raises:
             ValueError: If the URL is invalid
-            Exception: If conversion fails
-        
-        Example:
-            >>> converter = DocumentConverter()
-            >>> markdown = converter.convert_url_to_markdown("https://example.com")
+            Exception: For conversion errors
         """
-        if not url.startswith(('http://', 'https://')):
-            raise ValueError(f"Invalid URL: {url}")
+        if not url.startswith(("http://", "https://")):
+            raise ValueError(f"Invalid URL format: {url}")
         
         try:
-            result = self.converter.convert(url)
+            result = self._converter.convert(url)
             return result.text_content
         except Exception as e:
-            raise Exception(f"Failed to convert URL {url}: {str(e)}")
+            raise Exception(f"Failed to convert URL: {e}")
 
 
-def convert_to_markdown(file_path: Union[str, Path]) -> str:
-    """
-    Convenience function to convert a file to Markdown.
+def main():
+    """Command-line interface for the converter."""
+    import argparse
     
-    Args:
-        file_path: Path to the file to convert
+    parser = argparse.ArgumentParser(
+        description="Document Converter - Convert files to Markdown"
+    )
     
-    Returns:
-        Markdown-formatted text content
+    parser.add_argument(
+        "input",
+        help="File path or URL to convert"
+    )
     
-    Example:
-        >>> from converter import convert_to_markdown
-        >>> markdown = convert_to_markdown("manual.pdf")
-    """
-    converter = DocumentConverter()
-    return converter.convert_to_markdown(file_path)
-
-
-if __name__ == "__main__":
-    import sys
+    parser.add_argument(
+        "-o", "--output",
+        help="Output file path (optional, prints to stdout if not specified)"
+    )
     
-    if len(sys.argv) < 2:
-        print("Usage: python converter.py <file_path>")
-        sys.exit(1)
-    
-    file_path = sys.argv[1]
+    args = parser.parse_args()
     
     try:
         converter = DocumentConverter()
-        markdown = converter.convert_to_markdown(file_path)
-        print(markdown)
-    except Exception as e:
+        
+        # Determine if input is URL or file
+        if args.input.startswith(("http://", "https://")):
+            result = converter.convert_url_to_markdown(args.input)
+        else:
+            result = converter.convert_to_markdown(args.input)
+        
+        # Output result
+        if args.output:
+            Path(args.output).write_text(result, encoding="utf-8")
+            print(f"Converted to: {args.output}")
+        else:
+            print(result)
+            
+    except (FileNotFoundError, ValueError, ImportError) as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(2)
+
+
+if __name__ == "__main__":
+    main()

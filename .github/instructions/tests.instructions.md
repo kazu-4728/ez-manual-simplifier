@@ -1,30 +1,36 @@
-# Test Instructions
+# Test Instructions / テスト手順
 
-This directory contains test files for the EZ Manual Simplifier project.
+The `tests/` directory will be reintroduced alongside new source modules. Use this guide when rebuilding
+the test suite.
 
-## Test Structure
+`tests/` ディレクトリは新しいソースモジュールと共に再導入されます。テストスイートを再構築する際は、このガイドを使用してください。
 
-- Tests use manual path insertion: `sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))`
-- All test files follow the `test_*.py` naming convention
-- Use pytest framework for running tests
+## Test Layout / テストレイアウト
 
-## Key Test Files
+- Place unit tests under `tests/` mirroring the package structure in `src/`
+- Name files using `test_*.py` so pytest can discover them automatically
+- Keep fixtures small and reuseable; prefer factory functions over global state
 
-- `test_simplifier.py`: Tests for core simplification functionality
-- `test_converter.py`: Tests for document format conversion
-- `test_simplifier_integration.py`: Integration tests
+- `src/` のパッケージ構造を反映して、`tests/` の下にユニットテストを配置する
+- pytest が自動的に検出できるように、ファイル名は `test_*.py` を使用する
+- フィクスチャは小さく再利用可能に保ち、グローバルステートよりもファクトリ関数を優先する
 
-## Running Tests
+## Running Tests / テストの実行
 
 ```bash
-# Run all tests
+# Run the entire suite / テストスイート全体を実行
 python -m pytest
 
-# Run specific test file
-python tests/test_simplifier.py
+# Run a specific file / 特定のファイルを実行
+python -m pytest tests/test_simplifier.py
 ```
 
-## Test Requirements
+## Quality Expectations / 品質要件
 
-- Development dependencies are in `extras_require["dev"]` in setup.py
-- Minimum pytest version: 7.0.0
+- Aim for high-coverage tests on the text simplification logic
+- Include regression tests for previously fixed issues when restoring functionality
+- Document tricky behaviours in test docstrings to assist Copilot's suggestions
+
+- テキスト簡略化ロジックの高いカバレッジを目指す
+- 機能復元時に以前修正された問題のリグレッションテストを含める
+- Copilot の提案を支援するため、トリッキーな動作をテストの docstring に記載する

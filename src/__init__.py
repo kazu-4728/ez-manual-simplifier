@@ -1,11 +1,9 @@
-"""
-EZ Manual Simplifier
+"""EZ Manual Simplifier - Core package initialization.
 
-A tool to simplify complex manuals and documentation.
+This package provides tools for simplifying complex manuals and documents.
 """
+
+from .simplifier import simplify_text, simplify_file
 
 __version__ = "0.1.0"
-__author__ = "kazu-4728"
-
-# Package initialization
-# Main functionality will be added here
+__all__ = ["simplify_text", "simplify_file"]

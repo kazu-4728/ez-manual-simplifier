@@ -1,103 +1,135 @@
-"""
-Integration tests for simplifier module with converter.
-"""
+"""Integration tests for the simplifier module."""
 
-import sys
-import os
 import pytest
 from pathlib import Path
+import tempfile
 
-# Add src directory to path for imports
+
+# Import with path handling for tests
+import sys
+import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
 from simplifier import simplify_text, simplify_file
-
-try:
-    from converter import DocumentConverter
-    MARKITDOWN_AVAILABLE = True
-except ImportError:
-    MARKITDOWN_AVAILABLE = False
 
 
 class TestSimplifyText:
     """Test cases for simplify_text function."""
     
-    def test_simplify_text_basic(self):
+    def test_basic_simplification(self):
         """Test basic text simplification."""
-        text = "This is a test document."
-        result = simplify_text(text, level="medium")
-        
+        text = "This is a complex technical document."
+        result = simplify_text(text)
         assert result is not None
-        assert isinstance(result, str)
-        # Currently returns the same text (placeholder implementation)
-        assert result == text
+        assert len(result) > 0
     
-    def test_simplify_text_levels(self):
-        """Test all simplification levels."""
-        text = "Test content"
+    def test_simplification_levels(self):
+        """Test all three simplification levels."""
+        text = "The implementation leverages sophisticated algorithms."
         
         for level in ["low", "medium", "high"]:
             result = simplify_text(text, level=level)
             assert result is not None
+            assert level in result
     
-    def test_simplify_text_invalid_level(self):
-        """Test that invalid level raises ValueError."""
-        with pytest.raises(ValueError):
-            simplify_text("Test", level="invalid")
+    def test_invalid_level(self):
+        """Test that invalid levels raise ValueError."""
+        text = "Test text"
+        
+        with pytest.raises(ValueError) as exc_info:
+            simplify_text(text, level="invalid")
+        
+        assert "Invalid simplification level" in str(exc_info.value)
+        assert "invalid" in str(exc_info.value)
+    
+    def test_level_validation_message(self):
+        """Test that error message includes valid options."""
+        text = "Test text"
+        
+        with pytest.raises(ValueError) as exc_info:
+            simplify_text(text, level="extreme")
+        
+        error_msg = str(exc_info.value)
+        assert "low" in error_msg or "medium" in error_msg or "high" in error_msg
 
 
-@pytest.mark.skipif(not MARKITDOWN_AVAILABLE, reason="markitdown not installed")
 class TestSimplifyFile:
     """Test cases for simplify_file function."""
     
-    def test_simplify_file_basic(self, tmp_path):
-        """Test basic file simplification."""
-        # Create a test file
-        test_file = tmp_path / "test.txt"
-        test_file.write_text("# Test Document\n\nThis is test content.", encoding='utf-8')
-        
-        # Simplify the file
-        result = simplify_file(test_file, level="medium")
-        
-        assert result is not None
-        assert isinstance(result, str)
-        assert len(result) > 0
-    
-    def test_simplify_file_with_output(self, tmp_path):
-        """Test file simplification with output file."""
-        # Create a test file
-        test_file = tmp_path / "test.txt"
-        test_file.write_text("Test content", encoding='utf-8')
-        
-        # Output file
-        output_file = tmp_path / "output.md"
-        
-        # Simplify and save
-        result = simplify_file(test_file, level="low", output_path=output_file)
-        
-        assert result is not None
-        assert output_file.exists()
-        
-        # Check output file content
-        saved_content = output_file.read_text(encoding='utf-8')
-        assert saved_content == result
-    
-    def test_simplify_nonexistent_file(self):
-        """Test that simplifying a non-existent file raises FileNotFoundError."""
+    def test_file_not_found(self):
+        """Test that FileNotFoundError is raised for non-existent files."""
         with pytest.raises(FileNotFoundError):
-            simplify_file("nonexistent.pdf")
+            simplify_file("nonexistent_file.txt")
     
-    def test_simplify_file_invalid_level(self, tmp_path):
-        """Test that invalid level raises ValueError."""
-        test_file = tmp_path / "test.txt"
-        test_file.write_text("Test", encoding='utf-8')
-        
-        with pytest.raises(ValueError):
-            simplify_file(test_file, level="invalid")
+    def test_simplify_file_basic(self):
+        """Test basic file simplification."""
+        try:
+            # Create a temporary text file
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
+                f.write("This is a test document.\nIt has multiple lines.")
+                temp_path = f.name
+            
+            try:
+                result = simplify_file(temp_path, level="medium")
+                assert result is not None
+                assert "test" in result or "Test" in result
+            finally:
+                Path(temp_path).unlink()
+                
+        except ImportError:
+            pytest.skip("markitdown not installed")
+    
+    def test_simplify_file_with_output(self):
+        """Test file simplification with output file."""
+        try:
+            # Create a temporary input file
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
+                f.write("Test content for output.")
+                input_path = f.name
+            
+            # Create a temporary output path
+            output_fd, output_path = tempfile.mkstemp(suffix='.md')
+            os.close(output_fd)
+            
+            try:
+                result = simplify_file(input_path, level="low", output=output_path)
+                
+                # Check that output file was created
+                assert Path(output_path).exists()
+                
+                # Check that output file has content
+                output_content = Path(output_path).read_text(encoding="utf-8")
+                assert len(output_content) > 0
+                assert "Test" in output_content or "test" in output_content
+                
+                # Check that function still returns the result
+                assert result is not None
+                
+            finally:
+                Path(input_path).unlink()
+                if Path(output_path).exists():
+                    Path(output_path).unlink()
+                    
+        except ImportError:
+            pytest.skip("markitdown not installed")
+    
+    def test_simplify_file_invalid_level(self):
+        """Test that invalid level raises ValueError even with valid file."""
+        try:
+            # Create a temporary text file
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
+                f.write("Test content")
+                temp_path = f.name
+            
+            try:
+                with pytest.raises(ValueError):
+                    simplify_file(temp_path, level="invalid_level")
+            finally:
+                Path(temp_path).unlink()
+                
+        except ImportError:
+            pytest.skip("markitdown not installed")
 
 
-def test_simplify_file_without_markitdown():
-    """Test that simplify_file raises ImportError when markitdown is not available."""
-    if not MARKITDOWN_AVAILABLE:
-        with pytest.raises(ImportError):
-            simplify_file("test.pdf")
+if __name__ == "__main__":
+    pytest.main([__file__, "-v"])
