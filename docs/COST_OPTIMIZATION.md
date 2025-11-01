@@ -103,6 +103,7 @@ def split_text(text: str, max_chunk_size: int = 8000) -> list[str]:
 
 ```python
 from functools import lru_cache
+from typing import Optional
 import hashlib
 
 class ResearchCache:
