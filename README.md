@@ -118,11 +118,33 @@ https://kazu-4728.github.io/ez-manual-simplifier/
 
 ## 開発状況
 
-このツールは現在開発中です。完成までしばらくお待ちください。
+**Phase 1: UIファースト開発（準備完了）**
 
-**開発に関する情報**を知りたい開発者の方は、以下をご覧ください：
-- [CONTRIBUTING.md](CONTRIBUTING.md) - 開発への参加方法
-- [docs/](docs/) - 技術ドキュメント
+このツールは現在、Phase 1の開発を進めています。
+
+### 開発スケジュール
+- **Week 1**: UIファースト開発（モックデータ）
+- **Week 2**: バックエンド構築
+- **Week 3**: 統合＆テスト
+
+### リポジトリ構成
+
+```
+/workspace/
+├─ web/              # フロントエンド（実装予定）
+├─ api/              # バックエンド（実装予定）
+├─ src/              # Python実装（保留）
+├─ docs/             # プロジェクトドキュメント
+└─ .github/workflows/ # CI/CD（実装予定）
+```
+
+### 技術ドキュメント
+
+開発者向けの詳細情報は以下をご覧ください：
+- [要件定義](docs/PROJECT_REQUIREMENTS.md) - プロジェクト全体の要件
+- [タスク一覧](docs/TASKS.md) - 開発タスクの詳細
+- [実装サマリー](docs/IMPLEMENTATION_SUMMARY.md) - 技術仕様と進捗
+- [進捗管理](docs/PROGRESS_TRACKING.md) - 現在の進捗状況
 
 ## ライセンス
 
