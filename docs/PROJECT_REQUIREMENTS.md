@@ -109,13 +109,18 @@
 
 ```
 ┌─────────────────────────────────────┐
-│ フロントエンド（GitHub Pages）       │
-│ - 静的HTML + CSS + JavaScript       │
+│ フロントエンド（Vercel/Netlify）     │
+│ - Next.js (React/TypeScript)        │
+│ - リアルタイムプレビュー機能          │
+│ - コスト最適化（Server Components）  │
+│ - Phase 2への拡張性（API Routes）    │
 └─────────┬───────────────────────────┘
           │
           ▼
 ┌─────────────────────────────────────┐
-│ バックエンド（Cloudflare Workers）   │
+│ バックエンド                        │
+│ - Next.js API Routes                │
+│ - Python Flask/FastAPI（オプション）│
 │ - Webスクレイピング                  │
 │ - LLM API呼び出し                    │
 │ - GitHub Secrets（APIキー保護）      │
@@ -130,6 +135,13 @@
 ```
 
 **コスト**: 完全無料（無料枠のみ）
+
+**Next.js採用の利点**:
+- リアルタイムプレビュー機能の実装が容易
+- コスト最適化（Server Components、自動コード分割）
+- Phase 2への拡張性（API Routes、エージェント連携対応）
+- レスポンシブデザインの効率的な実装
+- デプロイが容易（Vercel、Netlify、Cloudflare Pages、GitHub Pages対応）
 
 ### 開発スケジュール（Phase 1）
 
@@ -246,12 +258,13 @@ GitHub Pages + Python Backend (Cloud Run) + LLM API
 
 ### 推奨（Phase 2）
 
-**プランA**（Phase 1構成維持）を推奨
+**プランB**（Next.js + Vercel）を推奨
 
 理由:
-- まず公開して反応を見る
-- ファイルアップロードはPhase 1の`src/converter.py`をCloudflare Workersから呼び出せば可能
-- スケール問題は実際に起きてから対処
+- Phase 1でNext.jsを採用しているため、移行がスムーズ
+- API Routesでファイルアップロードが簡単
+- エージェント連携（Phase 2の目標）にAPI Routesが有効
+- スケーラブルで将来の拡張に対応
 
 ### 開発スケジュール（Phase 2）
 
@@ -641,7 +654,8 @@ Phase 4: 0% → ...
 
 ---
 
-**最終更新**: 2025年11月1日
-**バージョン**: 4.0（完全版・全Phase定義）
+**最終更新**: 2025年1月11日
+**バージョン**: 4.1（完全版・全Phase定義）
 **作成者**: kazu-4728
 **更新者**: Orchestrator Agent
+**変更内容**: Phase 1のフロントエンド技術をNext.jsに更新（リアルタイムプレビュー、コスト最適化、Phase 2拡張性の利点を考慮）、Phase 2推奨プランをNext.js + Vercelに更新
