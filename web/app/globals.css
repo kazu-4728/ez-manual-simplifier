@@ -1,0 +1,259 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #0b0f14;
+  color: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0b0f14;
+  color: inherit;
+}
+
+a {
+  color: #ff8a3d;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+.frame {
+  width: min(960px, 92vw);
+  margin: 0 auto;
+  padding: 1.25rem 0;
+}
+
+.site-header {
+  background: #111726;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header .branding {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff8a3d;
+  margin-bottom: 0.75rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #f5f7fa;
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem 0 3rem;
+}
+
+section {
+  background-color: #121926;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 20px 45px rgba(6, 10, 20, 0.45);
+}
+
+section h1 {
+  margin-top: 0;
+  font-size: 1.75rem;
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+section p {
+  line-height: 1.7;
+}
+
+.site-footer {
+  background: #111726;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.68);
+  text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  background: rgba(17, 23, 38, 0.8);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.data-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.data-list li {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  background: rgba(17, 23, 38, 0.8);
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.badge {
+  background: rgba(255, 138, 61, 0.16);
+  color: #ffb482;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.details-group {
+  display: grid;
+  gap: 1rem;
+}
+
+.details-group details {
+  background: rgba(17, 23, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+
+.details-group summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.details-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.details-group summary::after {
+  content: '＋';
+  float: right;
+  transition: transform 0.2s ease;
+}
+
+.details-group details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.details-group p {
+  margin-top: 0.75rem;
+}
+
+.tab-list {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.tab-list button {
+  background: rgba(17, 23, 38, 0.8);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-list button[aria-pressed='true'] {
+  background: #ff8a3d;
+  border-color: #ff8a3d;
+  color: #0b0f14;
+}
+
+.tab-panel h2 {
+  margin-top: 0;
+}
+
+.tab-panel section {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.tab-panel p {
+  line-height: 1.7;
+}
+
+.mapping {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.updates {
+  margin-top: 2rem;
+}
+
+.updates .data-list {
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .frame {
+    width: 92vw;
+    padding: 1rem 0;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  .tab-list {
+    flex-direction: column;
+  }
+
+  .tab-list button {
+    width: 100%;
+  }
+}

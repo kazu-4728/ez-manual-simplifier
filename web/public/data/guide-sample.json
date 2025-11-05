@@ -1,0 +1,20 @@
+{
+  "original": [
+    {
+      "id": "p1",
+      "html": "<h2>原文見出し</h2><p>原文の段落。</p>"
+    }
+  ],
+  "simplified": [
+    {
+      "id": "s1",
+      "html": "<h2>要点</h2><p>簡易化した説明。</p>"
+    }
+  ],
+  "mapping": [
+    {
+      "origId": "p1",
+      "simpId": "s1"
+    }
+  ]
+}
